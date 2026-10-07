@@ -31,3 +31,4 @@ D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanl
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadLogin.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.frmRes.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.frmTrans.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.All_User_control.UC_Datsan.resources

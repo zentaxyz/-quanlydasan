@@ -17,7 +17,14 @@ namespace quanlydatsan
 
         private void btnDangxuat_Click(object sender, EventArgs e)
         {
-           
+            frmLogin login = new frmLogin();
+            this.Close();
+            login.Show();
+        }
+
+        private void DashbroadLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,7 +42,7 @@ namespace quanlydatsan
             btnTrangchu = new Button();
             label1 = new Label();
             picAvatar = new PictureBox();
-            panelMain = new Panel();
+            uC_Datsan1 = new quanlydatsan.All_User_control.UC_Datsan();
             panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
             SuspendLayout();
@@ -93,7 +93,7 @@ namespace quanlydatsan
             btnLichsu.Location = new Point(12, 194);
             btnLichsu.Margin = new Padding(3, 2, 3, 2);
             btnLichsu.Name = "btnLichsu";
-            btnLichsu.Size = new Size(152, 34);
+            btnLichsu.Size = new Size(190, 34);
             btnLichsu.TabIndex = 3;
             btnLichsu.Text = "  Lịch sử";
             btnLichsu.TextAlign = ContentAlignment.MiddleLeft;
@@ -109,7 +109,7 @@ namespace quanlydatsan
             btnTk.Location = new Point(12, 232);
             btnTk.Margin = new Padding(3, 2, 3, 2);
             btnTk.Name = "btnTk";
-            btnTk.Size = new Size(152, 34);
+            btnTk.Size = new Size(190, 34);
             btnTk.TabIndex = 4;
             btnTk.Text = "  Tài Khoản";
             btnTk.TextAlign = ContentAlignment.MiddleLeft;
@@ -125,7 +125,7 @@ namespace quanlydatsan
             btnDatsan.Location = new Point(12, 156);
             btnDatsan.Margin = new Padding(3, 2, 3, 2);
             btnDatsan.Name = "btnDatsan";
-            btnDatsan.Size = new Size(152, 34);
+            btnDatsan.Size = new Size(190, 34);
             btnDatsan.TabIndex = 2;
             btnDatsan.Text = "  Đặt Sân";
             btnDatsan.TextAlign = ContentAlignment.MiddleLeft;
@@ -141,7 +141,7 @@ namespace quanlydatsan
             btnTrangchu.Location = new Point(12, 118);
             btnTrangchu.Margin = new Padding(3, 2, 3, 2);
             btnTrangchu.Name = "btnTrangchu";
-            btnTrangchu.Size = new Size(152, 34);
+            btnTrangchu.Size = new Size(190, 34);
             btnTrangchu.TabIndex = 1;
             btnTrangchu.Text = "  Trang Chủ";
             btnTrangchu.TextAlign = ContentAlignment.MiddleLeft;
@@ -169,27 +169,27 @@ namespace quanlydatsan
             picAvatar.TabIndex = 0;
             picAvatar.TabStop = false;
             // 
-            // panelMain
+            // uC_Datsan1
             // 
-            panelMain.BackColor = Color.FromArgb(224, 224, 224);
-            panelMain.BorderStyle = BorderStyle.FixedSingle;
-            panelMain.Location = new Point(208, 0);
-            panelMain.Margin = new Padding(3, 2, 3, 2);
-            panelMain.Name = "panelMain";
-            panelMain.Size = new Size(770, 540);
-            panelMain.TabIndex = 1;
+            uC_Datsan1.BorderStyle = BorderStyle.FixedSingle;
+            uC_Datsan1.Location = new Point(208, 0);
+            uC_Datsan1.Name = "uC_Datsan1";
+            uC_Datsan1.Size = new Size(767, 536);
+            uC_Datsan1.TabIndex = 1;
             // 
             // DashbroadLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 539);
+            Controls.Add(uC_Datsan1);
             Controls.Add(panelSidebar);
-            Controls.Add(panelMain);
             Name = "DashbroadLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Trang Quản Trị";
-            WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Minimized;
+            Load += DashbroadLogin_Load;
+            Leave += btnDangxuat_Click;
             panelSidebar.ResumeLayout(false);
             panelSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
@@ -206,6 +206,7 @@ namespace quanlydatsan
         private Button btnTk;
         private Button btnDatsan;
         private Button btnDangxuat;
-        private Panel panelMain;
+        private Guna.UI2.WinForms.Guna2Panel MovingPanel;
+        private All_User_control.UC_Datsan uC_Datsan1;
     }
 }

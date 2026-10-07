@@ -36,6 +36,7 @@ namespace quanlydatsan
             if (ds.Tables[0].Rows.Count != 0)
             {
                 label6.Visible = false;
+
                 if(txtNPass.Text == txtNPassN.Text)
                 {   
                     label5.Visible=false;
