@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\quanlydatsan.csproj": {}
+    "E:\\baitap\\quanlydatsan\\-quanlydasan\\quanlydatsan\\quanlydatsan.csproj": {}
   },
   "projects": {
-    "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\quanlydatsan.csproj": {
+    "E:\\baitap\\quanlydatsan\\-quanlydasan\\quanlydatsan\\quanlydatsan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\quanlydatsan.csproj",
+        "projectUniqueName": "E:\\baitap\\quanlydatsan\\-quanlydasan\\quanlydatsan\\quanlydatsan.csproj",
         "projectName": "quanlydatsan",
-        "projectPath": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\quanlydatsan.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\obj\\",
+        "projectPath": "E:\\baitap\\quanlydatsan\\-quanlydasan\\quanlydatsan\\quanlydatsan.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "E:\\baitap\\quanlydatsan\\-quanlydasan\\quanlydatsan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,6 +47,12 @@
         "net10.0-windows": {
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -66,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
