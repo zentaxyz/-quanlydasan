@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "D:\\New folder\\baitapC#\\quanlydatsan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDE141CD-10BB-48A6-9BC7-6366FD71256D}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CDE141CD-10BB-48A6-9BC7-6366FD71256D}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\frmtrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\frmtrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\frmtrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\frmtrans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\dashbroadlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\dashbroadlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\dashbroadlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\dashbroadlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\frmres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\frmres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +42,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\Form1.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs",
+              "RelativeToolTip": "quanlydatsan\\Form1.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T18:31:08.455Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmTrans.cs",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmTrans.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\frmTrans.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmTrans.cs*",
+              "RelativeToolTip": "quanlydatsan\\frmTrans.cs*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwCYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T19:28:17.82Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DashbroadLogin.cs",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\DashbroadLogin.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\DashbroadLogin.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\DashbroadLogin.cs",
+              "RelativeToolTip": "quanlydatsan\\DashbroadLogin.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T16:15:00.664Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Database.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\Database.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Database.cs",
+              "RelativeToolTip": "quanlydatsan\\Database.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T18:51:39.889Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -26,15 +110,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs",
               "RelativeDocumentMoniker": "quanlydatsan\\Form1.cs",
               "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs [Design]",
               "RelativeToolTip": "quanlydatsan\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-07T11:01:57.532Z",
+              "WhenOpened": "2026-10-07T16:47:30.582Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmTrans.cs [Design]",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmTrans.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\frmTrans.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmTrans.cs [Design]*",
+              "RelativeToolTip": "quanlydatsan\\frmTrans.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T19:25:41.219Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashbroadLogin.cs [Design]",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\DashbroadLogin.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\DashbroadLogin.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\DashbroadLogin.cs [Design]",
+              "RelativeToolTip": "quanlydatsan\\DashbroadLogin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T17:53:52.919Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmRes.cs",
+              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmRes.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\frmRes.cs",
+              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\frmRes.cs",
+              "RelativeToolTip": "quanlydatsan\\frmRes.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAcwCwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T19:42:04.461Z",
+              "EditorCaption": ""
             }
           ]
         }
