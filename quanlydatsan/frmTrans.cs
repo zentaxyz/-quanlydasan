@@ -37,7 +37,7 @@ namespace quanlydatsan
             {
                 label6.Visible = false;
 
-                if(txtNPass.Text == txtNPassN.Text)
+                if(txtNPass.Text == txtNPassN.Text && txtNPass.Text != "")
                 {   
                     label5.Visible=false;
                     query = "UPDATE Taikhoan SET Matkhau = '" + txtNPass.Text.Trim() + "' WHERE Tendangnhap = '" + txtLogin.Text.Trim() + "'";
