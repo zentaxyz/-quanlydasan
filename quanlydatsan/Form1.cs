@@ -49,8 +49,8 @@ namespace quanlydatsan
 
             if (ds.Tables[0].Rows.Count !=0)
             {
-                DashbroadLogin dash = new DashbroadLogin();
                 this.Hide();
+                DashbroadLogin dash = new DashbroadLogin(this);
                 dash.Show();
             }
             else
