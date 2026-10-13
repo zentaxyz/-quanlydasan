@@ -26,9 +26,8 @@ D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\runti
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\runtimes\win\lib\net7.0\System.Management.dll
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.csproj.AssemblyReference.cache
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlyda.46F7F19D.Up2Date
-D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.frmLogin.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Properties.Resources.resources
-D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadLogin.resources
-D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.frmRes.resources
-D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.frmTrans.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.All_User_control.UC_Datsan.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.test.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadKH.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadAdmin.resources

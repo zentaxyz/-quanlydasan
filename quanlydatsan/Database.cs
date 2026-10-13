@@ -11,7 +11,7 @@ namespace quanlydatsan
         protected SqlConnection GetConnection()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "Data Source=DESKTOP-D92G8PD\\SQLEXPRESS;Initial Catalog=quanlidatsan;Integrated Security=True";
+            conn.ConnectionString = "Data Source=DESKTOP-D92G8PD\\SQLEXPRESS;Initial Catalog=quanlydatsan;Integrated Security=True";
             return conn;
         }
 
