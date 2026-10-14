@@ -56,12 +56,25 @@ namespace quanlydatsan
             else if (btn == btnHistory)
             {
                 SetActiveNavButton(btn, "LỊCH SỬ ĐẶT SÂN");
-                ShowPlaceholderPage("Danh sách các đơn đặt sân của: " + Session.FullName);
+
+                // Khởi tạo UserControl Lịch Sử Đặt Sân
+                quanlydatsan.All_User_control.UC_LichSuDatSan ucHistory = new quanlydatsan.All_User_control.UC_LichSuDatSan();
+                LoadUserControl(ucHistory);
             }
             else if (btn == btnProfile)
             {
                 SetActiveNavButton(btn, "THÔNG TIN CÁ NHÂN");
-                ShowPlaceholderPage($"Họ tên: {Session.FullName}\nSĐT: {Session.Phone}\nEmail: {Session.Email}\nVai trò: {Session.Role}");
+
+                // Khởi tạo UserControl Thông Tin Cá Nhân
+                quanlydatsan.All_User_control.UC_ThongTinCaNhan ucProfile = new quanlydatsan.All_User_control.UC_ThongTinCaNhan();
+
+                // Khi khách hàng đổi tên và bấm Lưu, tự động cập nhật ngay nhãn tên ở Sidebar bên trái
+                ucProfile.OnProfileUpdated += (newName) =>
+                {
+                    lblUserName.Text = newName;
+                };
+
+                LoadUserControl(ucProfile);
             }
         }
 

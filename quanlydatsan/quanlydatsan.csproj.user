@@ -4,6 +4,12 @@
     <Compile Update="All User control\UC_Datsan.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="All User control\UC_LichSuDatSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\UC_ThongTinCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="DashbroadAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
