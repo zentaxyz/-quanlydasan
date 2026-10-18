@@ -9,7 +9,7 @@ namespace quanlydatsan
 {
     internal class Database
     {
-        private string connection = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Quanlysans;User ID=sa;Password=12345;TrustServerCertificate=True";
+        private string connection = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=quanlydatsan;Integrated Security=True";
 
         public DataTable ReadData(string sql)
         {

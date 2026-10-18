@@ -11,7 +11,7 @@ namespace quanlydatsan
 {
     public partial class UCQuanLySan : UserControl
     {
-        string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Quanlysans;User ID=sa;Password=12345;TrustServerCertificate=True";
+        string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=quanlydatsan;Integrated Security=True;Trust Server Certificate=True";
         public UCQuanLySan()
         {
             InitializeComponent();

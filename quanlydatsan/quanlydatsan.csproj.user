@@ -28,28 +28,22 @@
     <Compile Update="DateTimePicker30Phut.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FrmLichSuThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UCgigiday\UCNgayLe.cs">
+    <Compile Update="ADD UC ADMIN\UCNgayLe.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UCgigiday\UCQuanLyLichDat.cs">
+    <Compile Update="ADD UC ADMIN\UCQuanLyLichDat.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UCgigiday\UCPhieuDatSan.cs">
+    <Compile Update="ADD UC ADMIN\UCPhieuDatSan.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UCgigiday\UCQuanLySan.cs">
+    <Compile Update="ADD UC ADMIN\UCQuanLySan.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
