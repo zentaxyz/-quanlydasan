@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\New folder\\baitapC#\\quanlydatsan\\",
+  "WorkspaceRootPath": "C:\\Duanbuliemsan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CDE141CD-10BB-48A6-9BC7-6366FD71256D}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CDE141CD-10BB-48A6-9BC7-6366FD71256D}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\duanbuliemsan\\quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +14,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -28,9 +32,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs",
+              "DocumentMoniker": "C:\\Duanbuliemsan\\quanlydatsan\\Form1.cs",
               "RelativeDocumentMoniker": "quanlydatsan\\Form1.cs",
-              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\Form1.cs [Design]",
+              "ToolTip": "C:\\Duanbuliemsan\\quanlydatsan\\Form1.cs [Design]",
               "RelativeToolTip": "quanlydatsan\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-07T11:01:57.532Z",

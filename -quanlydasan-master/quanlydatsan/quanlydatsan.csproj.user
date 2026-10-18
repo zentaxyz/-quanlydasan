@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="ADD UC ADMIN\QLLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ADD UC ADMIN\TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ADD UC ADMIN\UC_QLTK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\UC_Datsan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\UC_LichSuDatSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\UC_ThongTinCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="DashbroadAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DashbroadKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DateTimePicker30Phut.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmLichSuThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UCgigiday\UCNgayLe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCgigiday\UCQuanLyLichDat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCgigiday\UCPhieuDatSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCgigiday\UCQuanLySan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
