@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{156B16DA-3F98-412A-AB43-B4F3AFC6A31E}|TrangChu\\TrangChu.csproj|c:\\users\\lenovo\\source\\repos\\winformsapp4\\trangchu\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{156B16DA-3F98-412A-AB43-B4F3AFC6A31E}|TrangChu\\TrangChu.csproj|solutionrelative:trangchu\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|c:\\users\\lenovo\\source\\repos\\winformsapp4\\winformsapp4\\uctopkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|solutionrelative:winformsapp4\\uctopkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|c:\\users\\lenovo\\source\\repos\\winformsapp4\\winformsapp4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|solutionrelative:winformsapp4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\winformsapp4\\uctopkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{49BBBCA4-8A3C-F687-C06E-96D0217B74B5}|WinFormsApp4\\QuanLyDatSan.csproj|solutionrelative:winformsapp4\\uctopkhachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{156B16DA-3F98-412A-AB43-B4F3AFC6A31E}|TrangChu\\TrangChu.csproj|c:\\users\\lenovo\\source\\repos\\winformsapp4\\trangchu\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{156B16DA-3F98-412A-AB43-B4F3AFC6A31E}|TrangChu\\TrangChu.csproj|solutionrelative:trangchu\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TrangChu.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\TrangChu\\TrangChu.cs",
+              "RelativeDocumentMoniker": "TrangChu\\TrangChu.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\TrangChu\\TrangChu.cs",
+              "RelativeToolTip": "TrangChu\\TrangChu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T10:57:27.596Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrangChu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\TrangChu\\TrangChu.cs",
+              "RelativeDocumentMoniker": "TrangChu\\TrangChu.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\TrangChu\\TrangChu.cs [Design]",
+              "RelativeToolTip": "TrangChu\\TrangChu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-18T10:22:08.955Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\Program.cs",
+              "RelativeDocumentMoniker": "WinFormsApp4\\Program.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\Program.cs",
+              "RelativeToolTip": "WinFormsApp4\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T12:37:03.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UCTopKhachHang.cs",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\UCTopKhachHang.cs",
+              "RelativeDocumentMoniker": "WinFormsApp4\\UCTopKhachHang.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\UCTopKhachHang.cs*",
+              "RelativeToolTip": "WinFormsApp4\\UCTopKhachHang.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T12:23:26.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UCTopKhachHang.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\UCTopKhachHang.cs",
+              "RelativeDocumentMoniker": "WinFormsApp4\\UCTopKhachHang.cs",
+              "ToolTip": "C:\\Users\\Lenovo\\source\\repos\\WinFormsApp4\\WinFormsApp4\\UCTopKhachHang.cs [Design]",
+              "RelativeToolTip": "WinFormsApp4\\UCTopKhachHang.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-17T12:03:17.711Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
