@@ -25,4 +25,6 @@ E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\refin
 E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.pdb
 E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.genruntimeconfig.cache
 E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\ref\quanlydatsan.dll
-E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Khachhangvataikhoan.resources
+E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.ADD_UC_ADMIN.UC_QLTK.resources
+E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.ADD_UC_ADMIN.QLLS.resources
+E:\baitap\quanlydatsan\-quanlydasan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.TrangChu.resources

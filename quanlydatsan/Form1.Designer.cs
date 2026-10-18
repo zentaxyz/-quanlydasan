@@ -130,6 +130,7 @@
             btnLoaisan.Text = "  Loại Sân";
             btnLoaisan.TextAlign = ContentAlignment.MiddleLeft;
             btnLoaisan.UseVisualStyleBackColor = true;
+            btnLoaisan.MouseClick += btnLoaisan_MouseClick_1;
             // 
             // btnThanhtoan
             // 

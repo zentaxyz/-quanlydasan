@@ -1,6 +1,6 @@
-﻿namespace quanlydatsan
+﻿namespace quanlydatsan.ADD_UC_ADMIN
 {
-    partial class Khachhangvataikhoan
+    partial class UC_QLTK
     {
         /// <summary>
         /// Required designer variable.
@@ -63,8 +63,8 @@
             txtTimkiemTK = new TextBox();
             label14 = new Label();
             groupBox4 = new GroupBox();
-            cboMand = new ComboBox();
-            cboTrangthai = new ComboBox();
+            txtSDTCS = new TextBox();
+            txtEmailCS = new TextBox();
             btnLammoiTK = new Button();
             btnXoaTK = new Button();
             btnXuaTK = new Button();
@@ -318,7 +318,7 @@
             // 
             // txtMand
             // 
-            txtMand.BackColor = Color.LightGray;
+            txtMand.BackColor = Color.White;
             txtMand.Location = new Point(104, 47);
             txtMand.Name = "txtMand";
             txtMand.ReadOnly = true;
@@ -460,8 +460,8 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(cboMand);
-            groupBox4.Controls.Add(cboTrangthai);
+            groupBox4.Controls.Add(txtSDTCS);
+            groupBox4.Controls.Add(txtEmailCS);
             groupBox4.Controls.Add(btnLammoiTK);
             groupBox4.Controls.Add(btnXoaTK);
             groupBox4.Controls.Add(btnXuaTK);
@@ -484,22 +484,20 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Thông tin khách hàng";
             // 
-            // cboMand
+            // txtSDTCS
             // 
-            cboMand.FormattingEnabled = true;
-            cboMand.Location = new Point(464, 119);
-            cboMand.Name = "cboMand";
-            cboMand.Size = new Size(191, 28);
-            cboMand.TabIndex = 16;
+            txtSDTCS.Location = new Point(465, 78);
+            txtSDTCS.Name = "txtSDTCS";
+            txtSDTCS.Size = new Size(190, 27);
+            txtSDTCS.TabIndex = 16;
             // 
-            // cboTrangthai
+            // txtEmailCS
             // 
-            cboTrangthai.FormattingEnabled = true;
-            cboTrangthai.Items.AddRange(new object[] { "Hoạt động", "Bị khóa" });
-            cboTrangthai.Location = new Point(465, 82);
-            cboTrangthai.Name = "cboTrangthai";
-            cboTrangthai.Size = new Size(190, 28);
-            cboTrangthai.TabIndex = 15;
+            txtEmailCS.Location = new Point(465, 115);
+            txtEmailCS.Name = "txtEmailCS";
+            txtEmailCS.Size = new Size(190, 27);
+            txtEmailCS.TabIndex = 15;
+            txtEmailCS.TextChanged += textBox1_TextChanged;
             // 
             // btnLammoiTK
             // 
@@ -585,7 +583,7 @@
             // 
             // txtMatk
             // 
-            txtMatk.BackColor = Color.LightGray;
+            txtMatk.BackColor = Color.White;
             txtMatk.Location = new Point(120, 43);
             txtMatk.Name = "txtMatk";
             txtMatk.ReadOnly = true;
@@ -597,18 +595,18 @@
             label11.AutoSize = true;
             label11.Location = new Point(344, 122);
             label11.Name = "label11";
-            label11.Size = new Size(114, 20);
+            label11.Size = new Size(49, 20);
             label11.TabIndex = 6;
-            label11.Text = "Mã người dùng:";
+            label11.Text = "Email:";
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Location = new Point(344, 85);
             label12.Name = "label12";
-            label12.Size = new Size(78, 20);
+            label12.Size = new Size(39, 20);
             label12.TabIndex = 5;
-            label12.Text = "Trạng thái:";
+            label12.Text = "SĐT:";
             // 
             // label13
             // 
@@ -646,19 +644,15 @@
             label17.TabIndex = 0;
             label17.Text = "Mã TK:";
             // 
-            // Khachhangvataikhoan
+            // UC_QLTK
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(955, 672);
             Controls.Add(tabControl1);
             Controls.Add(label5);
             ForeColor = Color.MidnightBlue;
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Khachhangvataikhoan";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Khachhangvataikhoan";
-            WindowState = FormWindowState.Maximized;
+            Name = "UC_QLTK";
+            Size = new Size(955, 672);
             Load += Khachhangvataikhoan_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
@@ -721,17 +715,17 @@
         private TextBox txtMatkhau;
         private TextBox txtMatk;
         private Label label11;
-        private Label label12;
         private Label label13;
         private Label label15;
         private Label label16;
         private Label label17;
-        private ComboBox cboMand;
-        private ComboBox cboTrangthai;
         private GroupBox groupBox6;
         private TextBox txtTimkiemTK;
         private Label label14;
         private DataGridView dgvTaikhoan;
         private Label label18;
+        private TextBox txtSDTCS;
+        private TextBox txtEmailCS;
+        private Label label12;
     }
 }

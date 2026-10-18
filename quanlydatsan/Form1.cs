@@ -1,45 +1,51 @@
+using quanlydatsan.ADD_UC_ADMIN;
+
 namespace quanlydatsan
 {
     public partial class Form1 : Form
     {
 
-        private Form currentChildform;
+        private UserControl currentUC;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void OpenChildform(Form Childform)
+        private void OpenUserControl(UserControl uc)
         {
-            if (currentChildform != null)
+
+            if (currentUC != null)
             {
-                currentChildform.Close();
+                currentUC.Dispose();
             }
 
-            currentChildform = Childform;
-            Childform.TopLevel = false;
-            Childform.FormBorderStyle = FormBorderStyle.None;
-            Childform.Dock = DockStyle.Fill;
-
-            panelMain.Controls.Add(Childform);
-            panelMain.Tag = Childform;
-            Childform.BringToFront();
-            Childform.Show();
+            currentUC = uc;
+            uc.Dock = DockStyle.Fill;
+            panelMain.Controls.Clear();
+            panelMain.Controls.Add(uc);
+            panelMain.Tag = uc;
+            uc.BringToFront();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OpenChildform(new TrangchuQTV());
+            OpenUserControl(new TrangChu());
+        }
+
+
+        private void btnTaikhoan_MouseClick(object sender, MouseEventArgs e)
+        {
+            OpenUserControl(new UC_QLTK());
         }
 
         private void btnTrangchu_MouseClick(object sender, MouseEventArgs e)
         {
-            OpenChildform(new TrangchuQTV());
+            OpenUserControl(new TrangChu());
         }
 
-        private void btnTaikhoan_MouseClick(object sender, MouseEventArgs e)
+        private void btnLoaisan_MouseClick_1(object sender, MouseEventArgs e)
         {
-            OpenChildform(new Khachhangvataikhoan());
+            OpenUserControl(new QLLS());
         }
     }
 }
