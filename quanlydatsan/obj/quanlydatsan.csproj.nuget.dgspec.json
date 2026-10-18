@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Duanbuliemsan\\quanlydatsan\\quanlydatsan.csproj": {}
+    "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {}
   },
   "projects": {
-    "C:\\Duanbuliemsan\\quanlydatsan\\quanlydatsan.csproj": {
+    "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Duanbuliemsan\\quanlydatsan\\quanlydatsan.csproj",
+        "projectUniqueName": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
         "projectName": "quanlydatsan",
-        "projectPath": "C:\\Duanbuliemsan\\quanlydatsan\\quanlydatsan.csproj",
+        "projectPath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
         "packagesPath": "C:\\Users\\JackM\\.nuget\\packages\\",
-        "outputPath": "C:\\Duanbuliemsan\\quanlydatsan\\obj\\",
+        "outputPath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,16 @@
         "net10.0-windows": {
           "framework": "net10.0-windows7.0",
           "targetAlias": "net10.0-windows",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[7.1.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
