@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using quanlydatsan.ADD_UC_ADMIN; // Namespace chứa các UC Admin
+using quanlydatsan.ADD_UC_ADMIN; // Chứa các UserControl Admin
 
 namespace quanlydatsan
 {
@@ -12,10 +9,14 @@ namespace quanlydatsan
     {
         private Button activeBtn;
 
-        // 1. Khai báo sẵn các biến lưu trữ UserControl (mặc định là null)
+        // Khai báo sẵn các UserControl Admin (chỉ new khi cần chuyển trang)
         private TrangChu ucTrangChu;
-        private QLLS ucQLLS;
+        private UCQuanLySan ucQuanLySan;
+        private UCPhieuDatSan ucPhieuDatSan;
         private UC_QLTK ucQLTK;
+        private UCNgayLe ucNgayLe;
+        private QLLS ucLoaiSan;
+        private UCQuanLyLichDat ucQuanLyLichDat;
 
         public DashbroadAdmin()
         {
@@ -24,72 +25,101 @@ namespace quanlydatsan
 
         private void DashbroadAdmin_Load(object sender, EventArgs e)
         {
-            // Hiển thị tên Admin từ Session
             lblAdminName.Text = string.IsNullOrEmpty(Session.FullName) ? "Admin" : Session.FullName;
             lblTime.Text = "Hôm nay: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-            // Chọn trang tổng quan mặc định giống DashbroadKH
+            // Mở mặc định trang Tổng Quan Hệ Thống
             btnDashboard.PerformClick();
         }
 
-        #region Xử lý chuyển tab
+        #region Xử lý chuyển trang Dashboard
         private void btnMenu_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             if (btn == null) return;
 
+            // 1. Tổng Quan Hệ Thống
             if (btn == btnDashboard)
             {
                 HighlightButton(btn, "TỔNG QUAN HỆ THỐNG");
-
                 if (ucTrangChu == null)
                 {
                     ucTrangChu = new TrangChu();
                 }
                 HienThiUserControl(ucTrangChu);
             }
-            else if (btn == btnFieldMgr)
+            // 2. Quản Lý Danh Sách Sân
+            else if (btn == btnDSS)
             {
                 HighlightButton(btn, "QUẢN LÝ DANH SÁCH SÂN THỂ THAO");
-
-                // Nếu bạn dùng QLLS cho mục Sân hoặc Lịch Sân:
-                if (ucQLLS == null)
+                if (ucQuanLySan == null)
                 {
-                    ucQLLS = new QLLS();
+                    ucQuanLySan = new UCQuanLySan();
                 }
-                HienThiUserControl(ucQLLS);
+                HienThiUserControl(ucQuanLySan);
             }
-            else if (btn == btnOrderMgr)
+            // 3. Quản Lý Phiếu Đặt Sân
+            else if (btn == btnPĐS || btn == btnPĐS)
             {
-                HighlightButton(btn, "DUYỆT & QUẢN LÝ ĐẶT SÂN");
-
-                if (ucQLLS == null)
+                HighlightButton(btn, "QUẢN LÝ PHIẾU ĐẶT SÂN");
+                if (ucPhieuDatSan == null)
                 {
-                    ucQLLS = new QLLS();
+                    ucPhieuDatSan = new UCPhieuDatSan();
                 }
-                HienThiUserControl(ucQLLS);
+                HienThiUserControl(ucPhieuDatSan);
             }
-            else if (btn == btnCustomerMgr)
+            // 4. Quản Lý Khách Hàng (Tài khoản)
+            else if (btn == btnQLKH)
             {
                 HighlightButton(btn, "QUẢN LÝ KHÁCH HÀNG & TÀI KHOẢN");
-
                 if (ucQLTK == null)
                 {
                     ucQLTK = new UC_QLTK();
                 }
                 HienThiUserControl(ucQLTK);
             }
-            else if (btn == btnRevenue)
+            // 5. Quản Lý Ngày Lễ
+            else if (btn == btnNLe)
+            {
+                HighlightButton(btn, "QUẢN LÝ NGÀY LỄ & CHÍNH SÁCH GIÁ");
+                if (ucNgayLe == null)
+                {
+                    ucNgayLe = new UCNgayLe();
+                }
+                HienThiUserControl(ucNgayLe);
+            }
+            // 6. Quản Lý Loại Sân (QLLS)
+            else if (btn == btnQLLS)
+            {
+                HighlightButton(btn, "QUẢN LÝ LOẠI SÂN THỂ THAO");
+                if (ucLoaiSan == null)
+                {
+                    ucLoaiSan = new QLLS();
+                }
+                HienThiUserControl(ucLoaiSan);
+            }
+            // 7. Quản Lý Lịch Đặt
+            else if (btn == btnQLLĐ)
+            {
+                HighlightButton(btn, "QUẢN LÝ LỊCH ĐẶT SÂN");
+                if (ucQuanLyLichDat == null)
+                {
+                    ucQuanLyLichDat = new UCQuanLyLichDat();
+                }
+                HienThiUserControl(ucQuanLyLichDat);
+            }
+            // 8. Báo Cáo Doanh Thu
+            else if (btn == btnBC)
             {
                 HighlightButton(btn, "BÁO CÁO THỐNG KÊ DOANH THU");
-                ShowContentText("Thống kê tổng tiền thu theo ngày, tuần, tháng từ bảng LichSuThanhToan.");
+                ShowContentText("Thống kê doanh thu theo ngày, tuần, tháng từ bảng LichSuThanhToan.");
             }
         }
 
-        // Hàm hiển thị UserControl đảm bảo xóa sạch control tĩnh/chữ cũ và kéo UC lên trên cùng
+        // Đưa UC vào pnlContent, co giãn full và đưa lên trước
         private void HienThiUserControl(UserControl uc)
         {
-            // 1. Xóa các label chữ tạm thời nếu có
+            // Xóa bỏ các Label thông báo tạm nếu có
             for (int i = pnlContent.Controls.Count - 1; i >= 0; i--)
             {
                 if (pnlContent.Controls[i] is Label)
@@ -98,21 +128,19 @@ namespace quanlydatsan
                 }
             }
 
-            // 2. Nếu UserControl chưa có trong panel thì thêm vào
             if (!pnlContent.Controls.Contains(uc))
             {
                 uc.Dock = DockStyle.Fill;
                 pnlContent.Controls.Add(uc);
             }
 
-            // 3. Đưa UserControl lên lớp trên cùng và hiển thị
             uc.Visible = true;
             uc.BringToFront();
         }
 
         private void ShowContentText(string desc)
         {
-            pnlContent.Controls.Clear(); // Xóa sạch để hiển thị chữ thông báo
+            pnlContent.Controls.Clear();
             Label lbl = new Label
             {
                 Text = desc,
@@ -123,7 +151,7 @@ namespace quanlydatsan
             };
             pnlContent.Controls.Add(lbl);
         }
-        #endregion
+
         private void HighlightButton(Button btn, string title)
         {
             if (activeBtn != null)
@@ -136,10 +164,18 @@ namespace quanlydatsan
             activeBtn.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             lblTitle.Text = title;
         }
+        #endregion
+
         #region Đăng xuất
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Bạn có muốn đăng xuất quyền Quản Trị Viên không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialog = MessageBox.Show(
+                "Bạn có muốn đăng xuất quyền Quản Trị Viên không?",
+                "Xác nhận đăng xuất",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
             if (dialog == DialogResult.Yes)
             {
                 Session.UserId = null;

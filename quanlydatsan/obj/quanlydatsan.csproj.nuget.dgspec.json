@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {}
+    "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {
+    "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
+        "projectUniqueName": "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
         "projectName": "quanlydatsan",
-        "projectPath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
+        "projectPath": "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
         "packagesPath": "C:\\Users\\JackM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\obj\\",
+        "outputPath": "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

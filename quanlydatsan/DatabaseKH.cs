@@ -11,7 +11,7 @@ namespace quanlydatsan
         protected SqlConnection GetConnection()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Quanlysans;User ID=sa;Password=12345;TrustServerCertificate=True";
+            conn.ConnectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=quanlydatsan;Integrated Security=True";
             return conn;
         }
 

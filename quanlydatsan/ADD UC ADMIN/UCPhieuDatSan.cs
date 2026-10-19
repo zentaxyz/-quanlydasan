@@ -12,7 +12,7 @@ namespace quanlydatsan
 {
     public partial class UCPhieuDatSan : UserControl
     {
-        string connectionString =@"Data Source=localhost\SQLEXPRESS;Initial Catalog=Quanlysans;User ID=sa;Password=12345;TrustServerCertificate=True";
+        string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=quanlydatsan;Integrated Security=True;Trust Server Certificate=True";
         public UCPhieuDatSan()
         {
             InitializeComponent();
@@ -414,7 +414,7 @@ namespace quanlydatsan
             DateTime ngaySuDung = dtpNgaydung.Value.Date;
             TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
             TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
-            if (!KiemTraSanTrong())
+            if (!KiemTraSanTrong(false))
             {
                 MessageBox.Show("Sân đã được đặt trong khung giờ này hoặc thời gian không hợp lệ!","Không thể tạo phiếu",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
@@ -466,7 +466,7 @@ namespace quanlydatsan
                 MessageBox.Show("Lỗi tạo phiếu: " + ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
-        private bool KiemTraSanTrong()
+        private bool KiemTraSanTrong(bool dangSua = true)
         {
             if (cboSan.SelectedValue == null ||cboSan.SelectedValue is DataRowView)
             {
@@ -493,14 +493,14 @@ namespace quanlydatsan
                   AND p.ThoiGianBatDau < @GioKetThuc
                   AND p.ThoiGianKetThuc > @GioBatDau
                   AND t.TenTrangThai <> N'Hủy'
-                  AND p.MaPhieu <> @MaPhieu";
+                  AND (@MaPhieu = '' OR p.MaPhieu <> @MaPhieu)";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaSan",cboSan.SelectedValue.ToString());
                         cmd.Parameters.Add("@NgaySuDung", SqlDbType.Date).Value = dtpNgaydung.Value.Date;
                         cmd.Parameters.Add("@GioBatDau", SqlDbType.Time).Value = gioBatDau;
                         cmd.Parameters.Add("@GioKetThuc", SqlDbType.Time).Value = gioKetThuc;
-                        cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = string.IsNullOrWhiteSpace(txtMaPhieu.Text)? "" : txtMaPhieu.Text.Trim();
+                        cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value =dangSua && !string.IsNullOrWhiteSpace(txtMaPhieu.Text)?txtMaPhieu.Text.Trim() : "";
                         conn.Open();
 
                         int soPhieuTrung = Convert.ToInt32(cmd.ExecuteScalar());
