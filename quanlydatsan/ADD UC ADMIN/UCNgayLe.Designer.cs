@@ -112,7 +112,8 @@
             // 
             // dtpNgayLe
             // 
-            dtpNgayLe.Format = DateTimePickerFormat.Short;
+            dtpNgayLe.CustomFormat = "dd/MM/yyyy";
+            dtpNgayLe.Format = DateTimePickerFormat.Custom;
             dtpNgayLe.Location = new Point(657, 58);
             dtpNgayLe.Name = "dtpNgayLe";
             dtpNgayLe.Size = new Size(187, 27);

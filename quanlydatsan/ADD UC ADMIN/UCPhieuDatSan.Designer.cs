@@ -30,12 +30,12 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
-            dtpGioKetThuc = new DateTimePicker30Phut();
-            dtpGioBatDau = new DateTimePicker30Phut();
             txtTrangThaiSan = new TextBox();
             label10 = new Label();
             btnTao = new Button();
             chkXacNhanThanhToan = new CheckBox();
+            dtpGioKetThuc = new DateTimePicker30Phut();
+            dtpGioBatDau = new DateTimePicker30Phut();
             dtpNgaydung = new DateTimePicker();
             btnXoa = new Button();
             btnLuu = new Button();
@@ -57,6 +57,7 @@
             TxtTimten = new TextBox();
             btnTheoten = new Button();
             btnHientatca = new Button();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLichDat).BeginInit();
             SuspendLayout();
@@ -74,12 +75,12 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dtpGioKetThuc);
-            groupBox1.Controls.Add(dtpGioBatDau);
             groupBox1.Controls.Add(txtTrangThaiSan);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(btnTao);
             groupBox1.Controls.Add(chkXacNhanThanhToan);
+            groupBox1.Controls.Add(dtpGioKetThuc);
+            groupBox1.Controls.Add(dtpGioBatDau);
             groupBox1.Controls.Add(dtpNgaydung);
             groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(btnLuu);
@@ -103,28 +104,6 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin phiếu đặt sân";
-            // 
-            // dtpGioKetThuc
-            // 
-            dtpGioKetThuc.CustomFormat = "HH:mm";
-            dtpGioKetThuc.Format = DateTimePickerFormat.Custom;
-            dtpGioKetThuc.Location = new Point(773, 172);
-            dtpGioKetThuc.Name = "dtpGioKetThuc";
-            dtpGioKetThuc.ShowUpDown = true;
-            dtpGioKetThuc.Size = new Size(175, 27);
-            dtpGioKetThuc.TabIndex = 28;
-            dtpGioKetThuc.Value = new DateTime(2026, 10, 19, 8, 0, 0, 0);
-            // 
-            // dtpGioBatDau
-            // 
-            dtpGioBatDau.CustomFormat = "HH:mm";
-            dtpGioBatDau.Format = DateTimePickerFormat.Custom;
-            dtpGioBatDau.Location = new Point(511, 172);
-            dtpGioBatDau.Name = "dtpGioBatDau";
-            dtpGioBatDau.ShowUpDown = true;
-            dtpGioBatDau.Size = new Size(196, 27);
-            dtpGioBatDau.TabIndex = 27;
-            dtpGioBatDau.Value = new DateTime(2026, 10, 19, 7, 0, 0, 0);
             // 
             // txtTrangThaiSan
             // 
@@ -162,6 +141,30 @@
             chkXacNhanThanhToan.TabIndex = 23;
             chkXacNhanThanhToan.Text = "Xác nhận thanh toán";
             chkXacNhanThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // dtpGioKetThuc
+            // 
+            dtpGioKetThuc.CustomFormat = "HH:mm";
+            dtpGioKetThuc.Format = DateTimePickerFormat.Custom;
+            dtpGioKetThuc.Location = new Point(768, 169);
+            dtpGioKetThuc.Name = "dtpGioKetThuc";
+            dtpGioKetThuc.ShowUpDown = true;
+            dtpGioKetThuc.Size = new Size(171, 27);
+            dtpGioKetThuc.TabIndex = 22;
+            dtpGioKetThuc.Value = new DateTime(2026, 10, 18, 8, 0, 0, 0);
+            dtpGioKetThuc.ValueChanged += CapNhatTongTien;
+            // 
+            // dtpGioBatDau
+            // 
+            dtpGioBatDau.CustomFormat = "HH:mm";
+            dtpGioBatDau.Format = DateTimePickerFormat.Custom;
+            dtpGioBatDau.Location = new Point(511, 169);
+            dtpGioBatDau.Name = "dtpGioBatDau";
+            dtpGioBatDau.ShowUpDown = true;
+            dtpGioBatDau.Size = new Size(171, 27);
+            dtpGioBatDau.TabIndex = 21;
+            dtpGioBatDau.Value = new DateTime(2026, 10, 18, 7, 0, 0, 0);
+            dtpGioBatDau.ValueChanged += CapNhatTongTien;
             // 
             // dtpNgaydung
             // 
@@ -330,7 +333,7 @@
             dgvLichDat.ReadOnly = true;
             dgvLichDat.RowHeadersWidth = 51;
             dgvLichDat.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLichDat.Size = new Size(1363, 376);
+            dgvLichDat.Size = new Size(1503, 376);
             dgvLichDat.TabIndex = 8;
             dgvLichDat.CellClick += dgvLichDat_CellClick;
             // 
@@ -361,6 +364,11 @@
             btnHientatca.UseVisualStyleBackColor = true;
             btnHientatca.Click += btnHientatca_Click;
             // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
+            // 
             // UCPhieuDatSan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -372,7 +380,7 @@
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Name = "UCPhieuDatSan";
-            Size = new Size(1390, 883);
+            Size = new Size(1544, 883);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLichDat).EndInit();
@@ -405,11 +413,12 @@
         private Button btnTheoten;
         private Button btnHientatca;
         private DateTimePicker dtpNgaydung;
+        private quanlydatsan.DateTimePicker30Phut dtpGioKetThuc;
+        private quanlydatsan.DateTimePicker30Phut dtpGioBatDau;
         private CheckBox chkXacNhanThanhToan;
         private Button btnTao;
         private TextBox txtTrangThaiSan;
         private Label label10;
-        private DateTimePicker30Phut dtpGioKetThuc;
-        private DateTimePicker30Phut dtpGioBatDau;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
     }
 }

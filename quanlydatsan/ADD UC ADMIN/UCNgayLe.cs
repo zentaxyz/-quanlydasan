@@ -24,7 +24,8 @@ namespace quanlydatsan
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string sql = @"
-                SELECT Ngay, TenNgayLe
+                SELECT Ngay as [Ngày lễ],
+                       TenNgayLe as [Tên ngày lễ]
                 FROM NgayLe
                 ORDER BY Ngay ASC";
 
@@ -33,9 +34,7 @@ namespace quanlydatsan
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
                         dgvNgayLe.DataSource = dt;
-                        dgvNgayLe.Columns["Ngay"].HeaderText = "Ngày lễ";
-                        dgvNgayLe.Columns["TenNgayLe"].HeaderText = "Tên ngày lễ";
-                        dgvNgayLe.Columns["Ngay"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dgvNgayLe.Columns["Ngày lễ"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     }
                 }
             }
@@ -56,8 +55,8 @@ namespace quanlydatsan
                 return;
 
             DataGridViewRow row = dgvNgayLe.Rows[e.RowIndex];
-            dtpNgayLe.Value = Convert.ToDateTime(row.Cells["Ngay"].Value);
-            TxtNgayLe.Text = row.Cells["TenNgayLe"].Value.ToString();
+            dtpNgayLe.Value = Convert.ToDateTime(row.Cells["Ngày lễ"].Value);
+            TxtNgayLe.Text = row.Cells["Tên ngày lễ"].Value.ToString();
         }
         private void btnTao_Click(object sender, EventArgs e)
         {
@@ -75,7 +74,7 @@ namespace quanlydatsan
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string sql = @"
-                INSERT INTO NgayLe (Ngay, TenNgayLe)
+                INSERT INTO NgayLe
                 VALUES (@Ngay, @TenNgayLe)";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -109,7 +108,7 @@ namespace quanlydatsan
                 MessageBox.Show("Vui lòng chọn ngày lễ cần sửa!");
                 return;
             }
-            DateTime ngayLeCu = Convert.ToDateTime(dgvNgayLe.CurrentRow.Cells["Ngay"].Value).Date;
+            DateTime ngayLeCu = Convert.ToDateTime(dgvNgayLe.CurrentRow.Cells["Ngày lễ"].Value).Date;
             DateTime ngayLeMoi = dtpNgayLe.Value.Date;
             string tenNgayLe = TxtNgayLe.Text.Trim();
 
@@ -173,7 +172,7 @@ namespace quanlydatsan
             DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn xóa ngày lễ này không?","Xác nhận xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (xacNhan != DialogResult.Yes)
                 return;
-            DateTime ngayLe = Convert.ToDateTime(dgvNgayLe.CurrentRow.Cells["Ngay"].Value).Date;
+            DateTime ngayLe = Convert.ToDateTime(dgvNgayLe.CurrentRow.Cells["Ngày lễ"].Value).Date;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))

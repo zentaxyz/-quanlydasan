@@ -33,12 +33,12 @@ namespace quanlydatsan
                 {
                     string sql = @"
                 SELECT
-                    L.MaThanhToan,
-                    L.MaPhieu,
-                    L.ThoiGianThanhToan,
-                    L.PhuongThucThanhToan,
-                    L.SoTien,
-                    T.TenTrangThai AS TrangThai
+                    L.MaThanhToan as [Mã thanh toán],
+                    L.MaPhieu as [Mã phiếu],
+                    L.ThoiGianThanhToan as [Thời gian thanh toán],
+                    L.PhuongThucThanhToan as [Phương thức thanh toán],
+                    L.SoTien as [Số tiền],
+                    T.TenTrangThai as [Trạng thái]
                 FROM LichSuThanhToan L
                 LEFT JOIN TrangThai T
                     ON L.MaTrangThai = T.MaTrangThai
@@ -80,14 +80,14 @@ namespace quanlydatsan
             if (rowIndex < 0 || rowIndex >= dgvLSThanhtoan.Rows.Count)
                 return;
             DataGridViewRow row = dgvLSThanhtoan.Rows[rowIndex];
-            TxtMatt.Text = Convert.ToString(row.Cells["MaThanhToan"].Value);
-            TxtPhieuDatSan.Text = Convert.ToString(row.Cells["MaPhieu"].Value);
-            TxtSotien.Text = row.Cells["SoTien"].Value == DBNull.Value? "" : Convert.ToDecimal(row.Cells["SoTien"].Value).ToString("N0");
-            string phuongThuc = Convert.ToString(row.Cells["PhuongThucThanhToan"].Value);
+            TxtMatt.Text = Convert.ToString(row.Cells["Mã thanh toán"].Value);
+            TxtPhieuDatSan.Text = Convert.ToString(row.Cells["Mã phiếu"].Value);
+            TxtSotien.Text = row.Cells["Số tiền"].Value == DBNull.Value? "" : Convert.ToDecimal(row.Cells["Số tiền"].Value).ToString("N0");
+            string phuongThuc = Convert.ToString(row.Cells["Phương thức thanh toán"].Value);
             cboPTThanhtoan.SelectedItem = phuongThuc;
-            if (row.Cells["ThoiGianThanhToan"].Value != DBNull.Value)
+            if (row.Cells["Thời gian thanh toán"].Value != DBNull.Value)
             {
-                dtpTGthanhtoan.Value =Convert.ToDateTime(row.Cells["ThoiGianThanhToan"].Value);
+                dtpTGthanhtoan.Value =Convert.ToDateTime(row.Cells["Thời gian thanh toán"].Value);
             }
         }
 
@@ -196,12 +196,12 @@ namespace quanlydatsan
                 {
                     string sql = @"
                 SELECT
-                    L.MaThanhToan,
-                    L.MaPhieu,
-                    L.ThoiGianThanhToan,
-                    L.PhuongThucThanhToan,
-                    L.SoTien,
-                    T.TenTrangThai AS TrangThai
+                    L.MaThanhToan as [Mã thanh toán],
+                    L.MaPhieu as [Mã phiếu],
+                    L.ThoiGianThanhToan as [Thời gian thanh toán],
+                    L.PhuongThucThanhToan as [Phương thức thanh toán],
+                    L.SoTien as [Số tiền],
+                    T.TenTrangThai as [Trạng thái]
                 FROM LichSuThanhToan L
                 INNER JOIN PhieuDatSan P ON L.MaPhieu = P.MaPhieu
                 INNER JOIN KhachHang K ON P.MaKhach = K.MaKhach
@@ -245,7 +245,7 @@ namespace quanlydatsan
                 return;
             }
 
-            string maThanhToan = Convert.ToString(dgvLSThanhtoan.CurrentRow.Cells["MaThanhToan"].Value);
+            string maThanhToan = Convert.ToString(dgvLSThanhtoan.CurrentRow.Cells["Mã thanh toán"].Value);
 
             if (string.IsNullOrWhiteSpace(maThanhToan))
                 return;

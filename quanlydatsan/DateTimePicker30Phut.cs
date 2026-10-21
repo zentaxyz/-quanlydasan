@@ -1,50 +1,52 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Text;
 
 namespace quanlydatsan
 {
     public class DateTimePicker30Phut : DateTimePicker
     {
-        private const int WM_NOTIFY = 0x004E;
-        private const int UDN_DELTAPOS = -722;
-        [StructLayout(LayoutKind.Sequential)]
-        private struct NMHDR
-        {
-            public IntPtr hwndFrom;
-            public IntPtr idFrom;
-            public int code;
-        }
-        [StructLayout(LayoutKind.Sequential)]
-        private struct NMUPDOWN
-        {
-            public NMHDR hdr;
-            public int iPos;
-            public int iDelta;
-        }
+        private DateTime giaTriCu;
+        private bool dangDieuChinh;
 
         public DateTimePicker30Phut()
         {
             Format = DateTimePickerFormat.Custom;
             CustomFormat = "HH:mm";
             ShowUpDown = true;
+            giaTriCu = Value;
         }
 
-        protected override void WndProc(ref Message m)
+        protected override void OnValueChanged(EventArgs e)
         {
-            if (m.Msg == WM_NOTIFY && m.LParam != IntPtr.Zero)
+            if (dangDieuChinh)
             {
-                NMHDR hdr = Marshal.PtrToStructure<NMHDR>(m.LParam);
-
-                if (hdr.code == UDN_DELTAPOS)
-                {
-                    NMUPDOWN data =Marshal.PtrToStructure<NMUPDOWN>(m.LParam);Value = Value.AddMinutes(data.iDelta < 0 ? 30 : -30);
-                    m.Result = (IntPtr)1;
-                    return;
-                }
+                giaTriCu = Value;
+                base.OnValueChanged(e);
+                return;
             }
 
-            base.WndProc(ref m);
+            DateTime giaTriMoi = Value;
+            TimeSpan chenhLech = giaTriMoi - giaTriCu;
+
+            if (chenhLech == TimeSpan.FromMinutes(1) ||
+                chenhLech == TimeSpan.FromMinutes(-1))
+            {
+                DateTime giaTriDung = giaTriCu.AddMinutes(
+                    chenhLech.TotalMinutes > 0 ? 30 : -30
+                );
+
+                dangDieuChinh = true;
+                Value = giaTriDung;
+                dangDieuChinh = false;
+
+                giaTriCu = Value;
+                return;
+            }
+
+            giaTriCu = giaTriMoi;
+            base.OnValueChanged(e);
         }
     }
 }

@@ -152,22 +152,27 @@ namespace quanlydatsan
                     k.TenKhach AS [Tên Khách],
                     p.MaSan AS [Mã sân],
                     s.TenSan AS [Tên Sân],
+                    l.TenLoaiSan AS [Loại Sân],
                     p.NgayDat AS [Ngày Đặt],
-                    p.NgaySuDung AS [Ngày Sử Dụng]
+                    p.NgaySuDung AS [Ngày Dùng],
+                    p.ThoiGianBatDau AS [Giờ bắt đầu],
+                    p.ThoiGianKetThuc AS [Giờ kết thúc],
+                    p.XacNhanThanhToan,
+                    t.TenTrangThai
                     FROM PhieuDatSan p
                     INNER JOIN KhachHang k
                     ON p.MaKhach = k.MaKhach
                     INNER JOIN San s
                     ON p.MaSan = s.MaSan
-                    INNER JOIN LoaiSan ls
-                    ON s.MaLoaiSan = ls.MaLoaiSan
-                    INNER JOIN TrangThai tt
-                    ON p.MaTrangThai = tt.MaTrangThai
+                    INNER JOIN LoaiSan l
+                    ON s.MaLoaiSan = l.MaLoaiSan
+                    INNER JOIN TrangThai t
+                    ON p.MaTrangThai = t.MaTrangThai
                     WHERE
                     p.NgaySuDung >= @TuNgay
                     AND p.NgaySuDung <= @DenNgay
                     AND (@MaLoaiSan IS NULL
-                         OR ls.MaLoaiSan = @MaLoaiSan)
+                         OR l.MaLoaiSan = @MaLoaiSan)
                     AND (@MaTrangThai IS NULL
                          OR p.MaTrangThai = @MaTrangThai)
                     AND (
@@ -198,7 +203,7 @@ namespace quanlydatsan
                     }
                 }
                 dgvLichDat.Columns["Ngày Đặt"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvLichDat.Columns["Ngày Sử Dụng"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvLichDat.Columns["Ngày Dùng"].DefaultCellStyle.Format = "dd/MM/yyyy";
             }
             catch (SqlException ex)
             {
