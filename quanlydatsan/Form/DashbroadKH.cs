@@ -150,7 +150,7 @@ namespace quanlydatsan
                 }
                 else
                 {
-                    test newLogin = new test();
+                    FormLogin newLogin = new FormLogin();
                     newLogin.Show();
                 }
 

@@ -1,4 +1,6 @@
-﻿namespace quanlydatsan.All_User_control
+﻿using quanlydatsan.Class;
+
+namespace quanlydatsan.All_User_control
 {
     partial class UC_Datsan
     {

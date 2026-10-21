@@ -1,4 +1,6 @@
-﻿namespace quanlydatsan
+﻿using quanlydatsan.Class;
+
+namespace quanlydatsan
 {
     partial class UCPhieuDatSan
     {
@@ -407,8 +409,8 @@
         private Button btnTheoten;
         private Button btnHientatca;
         private DateTimePicker dtpNgaydung;
-        private quanlydatsan.DateTimePicker30Phut dtpGioKetThuc;
-        private quanlydatsan.DateTimePicker30Phut dtpGioBatDau;
+        private DateTimePicker30Phut dtpGioKetThuc;
+        private DateTimePicker30Phut dtpGioBatDau;
         private CheckBox chkXacNhanThanhToan;
         private Button btnTao;
         private TextBox txtTrangThaiSan;

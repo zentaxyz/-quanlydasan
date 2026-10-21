@@ -55,6 +55,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.9.1, )"
+            },
+            "WinForms.DataVisualization": {
+              "target": "Package",
+              "version": "[1.10.2, )"
             }
           },
           "imports": [

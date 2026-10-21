@@ -28,19 +28,19 @@
     <Compile Update="All User control\UC_TrangChu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="DashbroadAdmin.cs">
+    <Compile Update="Form\DashbroadAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DashbroadKH.cs">
+    <Compile Update="Form\DashbroadKH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DateTimePicker30Phut.cs">
+    <Compile Update="Class\DateTimePicker30Phut.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="FrmLichSuThanhToan.cs">
+    <Compile Update="Form\FrmLichSuThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="test.cs">
+    <Compile Update="Form\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ADD UC ADMIN\UCNgayLe.cs">
@@ -53,6 +53,18 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="ADD UC ADMIN\UCQuanLySan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCbaocao\UCDoanhThuTheoSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCbaocao\UCDoanhThuTheoThoiGian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UCbaocao\UCTopKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="ADD UC ADMIN\UC_BaoCaoDoanhThu.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

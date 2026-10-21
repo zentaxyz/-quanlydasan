@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text;
 
-namespace quanlydatsan
+namespace quanlydatsan.Class
 {
     public class DateTimePicker30Phut : DateTimePicker
     {

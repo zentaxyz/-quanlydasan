@@ -1,6 +1,6 @@
 ﻿namespace quanlydatsan
 {
-    partial class test
+    partial class FormLogin
     {
         private System.ComponentModel.IContainer components = null;
 

@@ -1,15 +1,16 @@
-﻿using System;
+﻿using quanlydatsan.Class;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
 namespace quanlydatsan
 {
-    public partial class test : Form
+    public partial class FormLogin : Form
     {
         // Khởi tạo kết nối CSDL từ class Database
         private readonly DatabaseC db = new DatabaseC();
 
-        public test()
+        public FormLogin()
         {
             InitializeComponent();
             SwitchPanel(pnlLogin);

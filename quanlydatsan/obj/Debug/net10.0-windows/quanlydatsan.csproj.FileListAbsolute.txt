@@ -196,7 +196,6 @@ D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanl
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadKH.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FrmLichSuThanhToan.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Properties.Resources.resources
-D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.test.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCNgayLe.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCPhieuDatSan.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCQuanLyLichDat.resources
@@ -216,3 +215,10 @@ D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\ref\q
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.All_User_control.UC_TrangChu.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FormThanhToan.resources
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UC_ThongTinChuSan.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCDoanhThuTheoSan.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCDoanhThuTheoThoiGian.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCTopKhachHang.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UC_BaoCaoDoanhThu.resources
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.Utilities.dll
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.dll
+D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FormLogin.resources
