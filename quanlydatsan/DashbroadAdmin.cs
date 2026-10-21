@@ -17,7 +17,7 @@ namespace quanlydatsan
         private UCNgayLe ucNgayLe;
         private QLLS ucLoaiSan;
         private UCQuanLyLichDat ucQuanLyLichDat;
-
+        private UC_ThongTinChuSan ucThongTinChuSan;
         public DashbroadAdmin()
         {
             InitializeComponent();
@@ -113,6 +113,16 @@ namespace quanlydatsan
             {
                 HighlightButton(btn, "BÁO CÁO THỐNG KÊ DOANH THU");
                 ShowContentText("Thống kê doanh thu theo ngày, tuần, tháng từ bảng LichSuThanhToan.");
+            }
+            // 9. Quản Lý Tài Khoản
+            else if (btn == btnTK)
+            {
+                HighlightButton(btn, "QUẢN LÝ TÀI KHOẢN");
+                if (ucThongTinChuSan == null)
+                {
+                    ucThongTinChuSan = new UC_ThongTinChuSan();
+                }
+                HienThiUserControl(ucThongTinChuSan);
             }
         }
 

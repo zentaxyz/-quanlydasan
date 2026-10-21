@@ -7,5 +7,8 @@
         public static string Role { get; set; }        // Vai trò: "ChuSan" hoặc "KhachHang"
         public static string Email { get; set; }
         public static string Phone { get; set; }
+
     }
+
+    
 }

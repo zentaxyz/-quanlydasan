@@ -55,7 +55,7 @@
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(240, 681);
+            pnlSidebar.Size = new Size(240, 711);
             pnlSidebar.TabIndex = 0;
             // 
             // btnLogout
@@ -67,7 +67,7 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(0, 631);
+            btnLogout.Location = new Point(0, 661);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(240, 50);
             btnLogout.TabIndex = 6;
@@ -241,7 +241,7 @@
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(240, 0);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(844, 60);
+            pnlHeader.Size = new Size(894, 60);
             pnlHeader.TabIndex = 1;
             // 
             // lblDateTime
@@ -249,7 +249,7 @@
             lblDateTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblDateTime.Font = new Font("Segoe UI", 9.5F);
             lblDateTime.ForeColor = Color.FromArgb(100, 116, 139);
-            lblDateTime.Location = new Point(544, 20);
+            lblDateTime.Location = new Point(594, 20);
             lblDateTime.Name = "lblDateTime";
             lblDateTime.Size = new Size(280, 20);
             lblDateTime.TabIndex = 1;
@@ -274,14 +274,14 @@
             pnlMainContainer.Location = new Point(240, 60);
             pnlMainContainer.Name = "pnlMainContainer";
             pnlMainContainer.Padding = new Padding(15);
-            pnlMainContainer.Size = new Size(844, 621);
+            pnlMainContainer.Size = new Size(894, 651);
             pnlMainContainer.TabIndex = 2;
             // 
             // DashbroadKH
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 681);
+            ClientSize = new Size(1134, 711);
             Controls.Add(pnlMainContainer);
             Controls.Add(pnlHeader);
             Controls.Add(pnlSidebar);

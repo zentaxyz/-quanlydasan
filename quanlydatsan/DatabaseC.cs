@@ -6,7 +6,7 @@ using System.Data;
 
 namespace quanlydatsan
 {
-    internal class DatabaseKH
+    internal class DatabaseC
     {
         protected SqlConnection GetConnection()
         {

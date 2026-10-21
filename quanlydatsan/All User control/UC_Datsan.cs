@@ -8,7 +8,7 @@ namespace quanlydatsan.All_User_control
 {
     public partial class UC_Datsan : UserControl
     {
-        private readonly DatabaseKH db = new DatabaseKH();
+        private readonly DatabaseC db = new DatabaseC();
         private bool isLoading = false; // Cờ khóa chống đệ quy giao diện
 
         // Thông tin sân đang được chọn
@@ -93,7 +93,7 @@ namespace quanlydatsan.All_User_control
                                SELECT 1 FROM PhieuDatSan p
                                WHERE p.MaSan = s.MaSan 
                                  AND CAST(p.NgaySuDung AS DATE) = '{ngay}'
-                                 AND RTRIM(p.MaTrangThai) <> 'TT04'
+                                 AND RTRIM(p.MaTrangThai) <> 'TT03'
                                  AND (p.ThoiGianBatDau < '{kt}' AND p.ThoiGianKetThuc > '{bd}')
                            ) THEN 1 ELSE 0 END AS DaDat
                     FROM San s
@@ -223,6 +223,24 @@ namespace quanlydatsan.All_User_control
         #endregion
 
         #region 4. Lưu Phiếu Đặt Sân & Xuất Biên Nhận
+        /// <summary>
+        /// Hàm tự động lấy số thứ tự lớn nhất sau chữ 'PD' rồi cộng thêm 1 (Ví dụ: PD01, PD02...)
+        /// </summary>
+        private string TaoMaPhieuTuDong()
+        {
+            string sql = @"
+                SELECT ISNULL(MAX(TRY_CAST(SUBSTRING(MaPhieu, 3, LEN(MaPhieu)) AS INT)), 0) + 1 
+                FROM PhieuDatSan 
+                WHERE MaPhieu LIKE 'PD%'";
+
+            DataSet ds = db.GetData(sql);
+            int stt = (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                ? Convert.ToInt32(ds.Tables[0].Rows[0][0])
+                : 1;
+
+            return $"PD {stt:D3}"; // D2: PD01, PD02... (Nếu muốn PD1, PD2 thì đổi thành $"PD{stt}")
+        }
+
         private void btnXacNhanDat_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(selectedMaSan) || string.IsNullOrEmpty(Session.UserId))
@@ -239,7 +257,7 @@ namespace quanlydatsan.All_User_control
             string checkSql = $@"
                 SELECT 1 FROM PhieuDatSan 
                 WHERE MaSan = '{selectedMaSan}' AND CAST(NgaySuDung AS DATE) = '{ngay}'
-                  AND RTRIM(MaTrangThai) <> 'TT04'
+                  AND RTRIM(MaTrangThai) <> 'TT03'
                   AND (ThoiGianBatDau < '{kt}' AND ThoiGianKetThuc > '{bd}')";
 
             if (db.GetData(checkSql)?.Tables[0].Rows.Count > 0)
@@ -249,8 +267,8 @@ namespace quanlydatsan.All_User_control
                 return;
             }
 
-            // 2. Sinh mã phiếu tự động (9 ký tự: P + NgàyGiờPhútGiây)
-            string maPhieu = "P" + DateTime.Now.ToString("ddHHmmss");
+            // 2. Sinh mã phiếu tự động (PD + số stt tăng dần: PD01, PD02...)
+            string maPhieu = TaoMaPhieuTuDong();
             string tienSql = tongTienTamTinh.ToString(CultureInfo.InvariantCulture);
 
             // 3. Lưu vào bảng PhieuDatSan (TT01: Đã đặt sân, 0: Chưa thanh toán)
@@ -258,7 +276,11 @@ namespace quanlydatsan.All_User_control
                 INSERT INTO PhieuDatSan (MaPhieu, MaKhach, MaSan, NgayDat, NgaySuDung, ThoiGianBatDau, ThoiGianKetThuc, TongTien, MaTrangThai, XacNhanThanhToan)
                 VALUES ('{maPhieu}', '{Session.UserId}', '{selectedMaSan}', CAST(GETDATE() AS DATE), '{ngay}', '{bd}', '{kt}', {tienSql}, 'TT01', 0)";
 
-            db.setData(insertSql, "");
+            db.setData(insertSql, $"Đặt sân thành công! Mã phiếu: {maPhieu}");
+
+            // 4. HIỂN THỊ HƯỚNG DẪN THANH TOÁN VÀ GỬI ẢNH ZALO
+            FormThanhToan frmTT = new FormThanhToan(maPhieu, tongTienTamTinh);
+            frmTT.ShowDialog();
 
             ResetSelection();
             LoadDanhSachSan();
@@ -290,5 +312,15 @@ namespace quanlydatsan.All_User_control
             flpDanhSachSan.ResumeLayout();
         }
         #endregion
+
+        private void pnlTopFilter_Paint(object sender, PaintEventArgs e)
+        {
+            // Giữ lại sự kiện Paint đã được khai báo bên trong Designer để không báo lỗi biên dịch
+        }
+
+        private void btnRe_Click(object sender, EventArgs e)
+        {
+            LoadDanhSachSan();
+        }
     }
 }

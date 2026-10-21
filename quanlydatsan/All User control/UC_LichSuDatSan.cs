@@ -7,7 +7,7 @@ namespace quanlydatsan.All_User_control
 {
     public partial class UC_LichSuDatSan : UserControl
     {
-        private readonly DatabaseKH db = new DatabaseKH();
+        private readonly DatabaseC db = new DatabaseC();
 
         public UC_LichSuDatSan()
         {
@@ -172,11 +172,12 @@ namespace quanlydatsan.All_User_control
                 return;
             }
 
-            if (trangThai.ToLower().Contains("hoàn thành") || trangThai.ToLower().Contains("sử dụng"))
+            if (trangThai.ToLower().Contains("hoàn thành") || trangThai.ToLower().Contains("đã đặt"))
             {
                 MessageBox.Show("Sân đang được sử dụng hoặc trận đấu đã kết thúc, bạn không thể hủy phiếu này!", "Không thể hủy", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
 
             // Xác nhận hủy
             DialogResult confirm = MessageBox.Show(
@@ -187,9 +188,9 @@ namespace quanlydatsan.All_User_control
 
             if (confirm == DialogResult.Yes)
             {
-                // Cập nhật MaTrangThai thành 'TT04' (Đã hủy)
+                // Cập nhật MaTrangThai thành 'TT03' (Đã hủy)
                 string updateQuery = $@"UPDATE PhieuDatSan 
-                                       SET MaTrangThai = 'TT04' 
+                                       SET MaTrangThai = 'TT03' 
                                        WHERE MaPhieu = '{maPhieu.Replace("'", "''")}'";
 
                 db.setData(updateQuery, $"Hủy phiếu #{maPhieu} thành công!");

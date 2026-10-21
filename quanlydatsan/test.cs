@@ -7,7 +7,7 @@ namespace quanlydatsan
     public partial class test : Form
     {
         // Khởi tạo kết nối CSDL từ class Database
-        private readonly DatabaseKH db = new DatabaseKH();
+        private readonly DatabaseC db = new DatabaseC();
 
         public test()
         {

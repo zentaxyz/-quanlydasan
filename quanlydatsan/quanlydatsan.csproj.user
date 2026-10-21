@@ -10,6 +10,12 @@
     <Compile Update="ADD UC ADMIN\UC_QLTK.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="ADD UC ADMIN\UC_ThongTinChuSan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\FormThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="All User control\UC_Datsan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -17,6 +23,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="All User control\UC_ThongTinCaNhan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All User control\UC_TrangChu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="DashbroadAdmin.cs">
