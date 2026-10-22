@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quanlydatsan.Class;
+using System;
 using System.Data;
 using System.Windows.Forms;
 
@@ -6,7 +7,7 @@ namespace quanlydatsan.All_User_control
 {
     public partial class UC_ThongTinCaNhan : UserControl
     {
-        private readonly DatabaseKH db = new DatabaseKH();
+        private readonly DatabaseC db = new DatabaseC();
         private string currentPasswordInDb = "";
 
         // Sự kiện callback để thông báo cho Form Dashbroad cập nhật lại tên hiển thị

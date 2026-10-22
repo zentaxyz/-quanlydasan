@@ -31,8 +31,7 @@ namespace quanlydatsan
                     l.TenLoaiSan as [Loại Sân],
                     s.MaLoaiSan as [Mã Loại Sân]
                 FROM San s
-                INNER JOIN LoaiSan l
-                    ON s.MaLoaiSan = l.MaLoaiSan
+                JOIN LoaiSan l ON s.MaLoaiSan = l.MaLoaiSan
                 ORDER BY s.MaSan ASC";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -143,14 +142,12 @@ namespace quanlydatsan
                 TxtTenSan.Focus();
                 return;
             }
-
             if (cboLoaiSan.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng chọn loại sân!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 cboLoaiSan.Focus();
                 return;
             }
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))

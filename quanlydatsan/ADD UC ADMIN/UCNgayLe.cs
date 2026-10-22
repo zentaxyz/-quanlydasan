@@ -43,12 +43,6 @@ namespace quanlydatsan
                 MessageBox.Show("Lỗi tải danh sách ngày lễ: " + ex.Message);
             }
         }
-        private void LamMoiNgayLe()
-        {
-            TxtNgayLe.Clear();
-            dtpNgayLe.Value = DateTime.Today;
-            dgvNgayLe.ClearSelection();
-        }
         private void dgvNgayLe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -87,7 +81,9 @@ namespace quanlydatsan
                 }
                 MessageBox.Show("Thêm ngày lễ thành công!");
                 LoadDanhSachNgayLe();
-                LamMoiNgayLe();
+                TxtNgayLe.Clear();
+                dtpNgayLe.Value = DateTime.Today;
+                dgvNgayLe.ClearSelection();
             }
             catch (SqlException ex)
             {
@@ -103,7 +99,7 @@ namespace quanlydatsan
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (dgvNgayLe.CurrentRow == null ||dgvNgayLe.CurrentRow.IsNewRow)
+            if (dgvNgayLe.CurrentRow == null || dgvNgayLe.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Vui lòng chọn ngày lễ cần sửa!");
                 return;
@@ -141,7 +137,9 @@ namespace quanlydatsan
                         {
                             MessageBox.Show("Sửa ngày lễ thành công!");
                             LoadDanhSachNgayLe();
-                            LamMoiNgayLe();
+                            TxtNgayLe.Clear();
+                            dtpNgayLe.Value = DateTime.Today;
+                            dgvNgayLe.ClearSelection();
                         }
                         else
                         {
@@ -164,12 +162,12 @@ namespace quanlydatsan
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvNgayLe.CurrentRow == null ||dgvNgayLe.CurrentRow.IsNewRow)
+            if (dgvNgayLe.CurrentRow == null || dgvNgayLe.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Vui lòng chọn ngày lễ cần xóa!");
                 return;
             }
-            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn xóa ngày lễ này không?","Xác nhận xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn xóa ngày lễ này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (xacNhan != DialogResult.Yes)
                 return;
             DateTime ngayLe = Convert.ToDateTime(dgvNgayLe.CurrentRow.Cells["Ngày lễ"].Value).Date;
@@ -188,7 +186,9 @@ namespace quanlydatsan
                         {
                             MessageBox.Show("Xóa ngày lễ thành công!");
                             LoadDanhSachNgayLe();
-                            LamMoiNgayLe();
+                            TxtNgayLe.Clear();
+                            dtpNgayLe.Value = DateTime.Today;
+                            dgvNgayLe.ClearSelection();
                         }
                         else
                         {

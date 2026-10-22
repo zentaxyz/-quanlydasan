@@ -13,7 +13,7 @@ namespace quanlydatsan
     {
         private string connectionString;
         private string maPhieu;
-        public FrmLichSuThanhToan(string connectionString, string maPhieu,decimal tongTien)
+        public FrmLichSuThanhToan(string connectionString, string maPhieu, decimal tongTien)
         {
             InitializeComponent();
             this.connectionString = connectionString;
@@ -33,28 +33,24 @@ namespace quanlydatsan
                 {
                     string sql = @"
                 SELECT
-                    L.MaThanhToan as [Mã thanh toán],
-                    L.MaPhieu as [Mã phiếu],
-                    L.ThoiGianThanhToan as [Thời gian thanh toán],
-                    L.PhuongThucThanhToan as [Phương thức thanh toán],
-                    L.SoTien as [Số tiền],
-                    T.TenTrangThai as [Trạng thái]
-                FROM LichSuThanhToan L
-                LEFT JOIN TrangThai T
-                    ON L.MaTrangThai = T.MaTrangThai
-                WHERE L.MaPhieu = @MaPhieu
-                ORDER BY L.ThoiGianThanhToan DESC";
+                    LST.MaThanhToan as [Mã thanh toán],
+                    LST.MaPhieu AS [Mã phiếu],
+                    LST.ThoiGianThanhToan as [Thời gian thanh toán],
+                    LST.PhuongThucThanhToan as [Phương thức thanh toán],
+                    LST.SoTien as [Số tiền],
+                    t.TenTrangThai as [Trạng thái]
+                FROM LichSuThanhToan LST
+                LEFT JOIN TrangThai t ON LST.MaTrangThai = t.MaTrangThai
+                WHERE LST.MaPhieu = @MaPhieu
+                ORDER BY LST.ThoiGianThanhToan DESC";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = maPhieu;
                         DataTable dt = new DataTable();
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            da.Fill(dt);
-                        }
-
-                        dgvLSThanhtoan.DataSource = dt; 
+                        da.Fill(dt);
+                        dgvLSThanhtoan.DataSource = dt;
                     }
                 }
                 if (dgvLSThanhtoan.Rows.Count > 0)
@@ -72,7 +68,7 @@ namespace quanlydatsan
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải lịch sử thanh toán: " + ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi tải lịch sử thanh toán: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void HienThiThongTinThanhToan(int rowIndex)
@@ -82,13 +78,10 @@ namespace quanlydatsan
             DataGridViewRow row = dgvLSThanhtoan.Rows[rowIndex];
             TxtMatt.Text = Convert.ToString(row.Cells["Mã thanh toán"].Value);
             TxtPhieuDatSan.Text = Convert.ToString(row.Cells["Mã phiếu"].Value);
-            TxtSotien.Text = row.Cells["Số tiền"].Value == DBNull.Value? "" : Convert.ToDecimal(row.Cells["Số tiền"].Value).ToString("N0");
+            TxtSotien.Text = Convert.ToDecimal(row.Cells["Số tiền"].Value).ToString("N0");
             string phuongThuc = Convert.ToString(row.Cells["Phương thức thanh toán"].Value);
             cboPTThanhtoan.SelectedItem = phuongThuc;
-            if (row.Cells["Thời gian thanh toán"].Value != DBNull.Value)
-            {
-                dtpTGthanhtoan.Value =Convert.ToDateTime(row.Cells["Thời gian thanh toán"].Value);
-            }
+            dtpTGthanhtoan.Value = Convert.ToDateTime(row.Cells["Thời gian thanh toán"].Value);
         }
 
         private void dgvLSThanhtoan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +99,6 @@ namespace quanlydatsan
                 SELECT TongTien
                 FROM PhieuDatSan
                 WHERE MaPhieu = @MaPhieu";
-
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = maPhieu;
@@ -114,7 +106,7 @@ namespace quanlydatsan
                         object result = cmd.ExecuteScalar();
                         if (result != null && result != DBNull.Value)
                         {
-                            TxtSotien.Text =Convert.ToDecimal(result).ToString("N0");
+                            TxtSotien.Text = Convert.ToDecimal(result).ToString("N0");
                         }
                         else
                         {
@@ -145,7 +137,7 @@ namespace quanlydatsan
             }
             if (!string.IsNullOrWhiteSpace(TxtMatt.Text))
             {
-                MessageBox.Show("Phiếu này đã có lịch sử thanh toán. Không thể tạo thêm!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Phiếu này đã có lịch sử thanh toán. Không thể tạo thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             try
@@ -154,7 +146,7 @@ namespace quanlydatsan
                 using (SqlCommand cmd = new SqlCommand("XacNhanThanhToan", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10) .Value = maPhieu;
+                    cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = maPhieu;
                     cmd.Parameters.Add("@PhuongThucThanhToan", SqlDbType.NVarChar, 50).Value = cboPTThanhtoan.SelectedItem.ToString();
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -163,22 +155,22 @@ namespace quanlydatsan
                         {
                             TxtMatt.Text = reader["MaThanhToan"].ToString();
                             TxtPhieuDatSan.Text = reader["MaPhieu"].ToString();
-                            TxtSotien.Text =Convert.ToDecimal(reader["SoTien"]).ToString("N0");
-                            dtpTGthanhtoan.Value =Convert.ToDateTime(reader["ThoiGianThanhToan"]);
-                            cboPTThanhtoan.SelectedItem =reader["PhuongThucThanhToan"].ToString();
+                            TxtSotien.Text = Convert.ToDecimal(reader["SoTien"]).ToString("N0");
+                            dtpTGthanhtoan.Value = Convert.ToDateTime(reader["ThoiGianThanhToan"]);
+                            cboPTThanhtoan.SelectedItem = reader["PhuongThucThanhToan"].ToString();
                         }
                     }
                 }
                 LoadDgvLSThanhtoan();
-                MessageBox.Show("Xác nhận thanh toán thành công!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Xác nhận thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message,"Không thể thanh toán",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Không thể thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi thanh toán: " + ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi thanh toán: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnTheoTen_Click(object sender, EventArgs e)
@@ -196,19 +188,19 @@ namespace quanlydatsan
                 {
                     string sql = @"
                 SELECT
-                    L.MaThanhToan as [Mã thanh toán],
-                    L.MaPhieu as [Mã phiếu],
-                    L.ThoiGianThanhToan as [Thời gian thanh toán],
-                    L.PhuongThucThanhToan as [Phương thức thanh toán],
-                    L.SoTien as [Số tiền],
-                    T.TenTrangThai as [Trạng thái]
-                FROM LichSuThanhToan L
-                INNER JOIN PhieuDatSan P ON L.MaPhieu = P.MaPhieu
-                INNER JOIN KhachHang K ON P.MaKhach = K.MaKhach
-                LEFT JOIN TrangThai T ON L.MaTrangThai = T.MaTrangThai
-                WHERE L.MaPhieu = @MaPhieu
-                  AND K.TenKhach LIKE @TenKhach
-                ORDER BY L.ThoiGianThanhToan DESC";
+                    LST.MaThanhToan as [Mã thanh toán],
+                    LST.MaPhieu as [Mã phiếu],
+                    LST.ThoiGianThanhToan as [Thời gian thanh toán],
+                    LST.PhuongThucThanhToan as [Phương thức thanh toán],
+                    LST.SoTien as [Số tiền],
+                    t.TenTrangThai as [Trạng thái]
+                FROM LichSuThanhToan LST
+                JOIN PhieuDatSan p ON LST.MaPhieu = p.MaPhieu
+                JOIN KhachHang k ON p.MaKhach = k.MaKhach
+                LEFT JOIN TrangThai t ON LST.MaTrangThai = t.MaTrangThai
+                WHERE LST.MaPhieu = @MaPhieu
+                AND k.TenKhach LIKE @TenKhach
+                ORDER BY LST.ThoiGianThanhToan DESC";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -249,7 +241,7 @@ namespace quanlydatsan
 
             if (string.IsNullOrWhiteSpace(maThanhToan))
                 return;
-            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa lịch sử thanh toán " + maThanhToan + "?","Xác nhận xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa lịch sử thanh toán " + maThanhToan + "?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes)
                 return;
 

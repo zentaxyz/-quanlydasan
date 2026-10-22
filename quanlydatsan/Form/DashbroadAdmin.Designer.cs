@@ -18,6 +18,7 @@
         private void InitializeComponent()
         {
             pnlSidebar = new Panel();
+            btnTK = new Button();
             btnBC = new Button();
             btnQLLĐ = new Button();
             btnQLLS = new Button();
@@ -47,6 +48,7 @@
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(15, 23, 42);
+            pnlSidebar.Controls.Add(btnTK);
             pnlSidebar.Controls.Add(btnBC);
             pnlSidebar.Controls.Add(btnQLLĐ);
             pnlSidebar.Controls.Add(btnQLLS);
@@ -63,6 +65,24 @@
             pnlSidebar.Name = "pnlSidebar";
             pnlSidebar.Size = new Size(250, 720);
             pnlSidebar.TabIndex = 0;
+            // 
+            // btnTK
+            // 
+            btnTK.Cursor = Cursors.Hand;
+            btnTK.Dock = DockStyle.Top;
+            btnTK.FlatAppearance.BorderSize = 0;
+            btnTK.FlatStyle = FlatStyle.Flat;
+            btnTK.Font = new Font("Segoe UI", 10.5F);
+            btnTK.ForeColor = Color.FromArgb(226, 232, 240);
+            btnTK.Location = new Point(0, 600);
+            btnTK.Name = "btnTK";
+            btnTK.Padding = new Padding(25, 0, 0, 0);
+            btnTK.Size = new Size(250, 50);
+            btnTK.TabIndex = 10;
+            btnTK.Text = "👤   Tài Khoản";
+            btnTK.TextAlign = ContentAlignment.MiddleLeft;
+            btnTK.UseVisualStyleBackColor = true;
+            btnTK.Click += btnMenu_Click;
             // 
             // btnBC
             // 
@@ -394,5 +414,6 @@
         private Button btnBC;
         private Button btnQLLĐ;
         private Button btnQLLS;
+        private Button btnTK;
     }
 }

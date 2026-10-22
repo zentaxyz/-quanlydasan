@@ -53,9 +53,13 @@
             // 
             // dgvNgayLe
             // 
+            dgvNgayLe.AllowUserToAddRows = false;
+            dgvNgayLe.AllowUserToDeleteRows = false;
             dgvNgayLe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNgayLe.Location = new Point(15, 222);
+            dgvNgayLe.MultiSelect = false;
             dgvNgayLe.Name = "dgvNgayLe";
+            dgvNgayLe.ReadOnly = true;
             dgvNgayLe.RowHeadersWidth = 51;
             dgvNgayLe.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvNgayLe.Size = new Size(1372, 507);

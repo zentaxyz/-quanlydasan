@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text;
 
-namespace quanlydatsan
+namespace quanlydatsan.Class
 {
     public class DateTimePicker30Phut : DateTimePicker
     {
@@ -31,10 +31,12 @@ namespace quanlydatsan
             TimeSpan chenhLech = giaTriMoi - giaTriCu;
 
             if (chenhLech == TimeSpan.FromMinutes(1) ||
-                chenhLech == TimeSpan.FromMinutes(-1))
+                chenhLech == TimeSpan.FromMinutes(-1) ||
+                chenhLech == TimeSpan.FromMinutes(59))
             {
+                
                 DateTime giaTriDung = giaTriCu.AddMinutes(
-                    chenhLech.TotalMinutes > 0 ? 30 : -30
+                    chenhLech == TimeSpan.FromMinutes(1) ? 30 : -30
                 );
 
                 dangDieuChinh = true;

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+rR5vTIYI5Y=",
+  "dgSpecHash": "uWf0Y9+cdA8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\JackM\\Downloads\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
+  "projectFilePath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\quanlydatsan.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JackM\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.18\\microsoft.bcl.cryptography.9.0.18.nupkg.sha512",
     "C:\\Users\\JackM\\.nuget\\packages\\microsoft.data.sqlclient\\7.1.1\\microsoft.data.sqlclient.7.1.1.nupkg.sha512",
@@ -28,7 +28,8 @@
     "C:\\Users\\JackM\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\JackM\\.nuget\\packages\\system.data.sqlclient\\4.9.1\\system.data.sqlclient.4.9.1.nupkg.sha512",
     "C:\\Users\\JackM\\.nuget\\packages\\system.identitymodel.tokens.jwt\\8.16.0\\system.identitymodel.tokens.jwt.8.16.0.nupkg.sha512",
-    "C:\\Users\\JackM\\.nuget\\packages\\system.threading.ratelimiting\\9.0.18\\system.threading.ratelimiting.9.0.18.nupkg.sha512"
+    "C:\\Users\\JackM\\.nuget\\packages\\system.threading.ratelimiting\\9.0.18\\system.threading.ratelimiting.9.0.18.nupkg.sha512",
+    "C:\\Users\\JackM\\.nuget\\packages\\winforms.datavisualization\\1.10.2\\winforms.datavisualization.1.10.2.nupkg.sha512"
   ],
   "logs": []
 }

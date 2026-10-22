@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
 
-namespace quanlydatsan
+namespace quanlydatsan.Class
 {
     internal class Database
     {

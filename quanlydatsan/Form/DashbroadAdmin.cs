@@ -17,7 +17,9 @@ namespace quanlydatsan
         private UCNgayLe ucNgayLe;
         private QLLS ucLoaiSan;
         private UCQuanLyLichDat ucQuanLyLichDat;
+        private UC_ThongTinChuSan ucThongTinChuSan;
 
+        private UC_BaoCaoDoanhThu ucBaoCaoDoanhThu;
         public DashbroadAdmin()
         {
             InitializeComponent();
@@ -47,6 +49,7 @@ namespace quanlydatsan
                     ucTrangChu = new TrangChu();
                 }
                 HienThiUserControl(ucTrangChu);
+                ucTrangChu.LamMoiDuLieu();
             }
             // 2. Quản Lý Danh Sách Sân
             else if (btn == btnDSS)
@@ -112,7 +115,21 @@ namespace quanlydatsan
             else if (btn == btnBC)
             {
                 HighlightButton(btn, "BÁO CÁO THỐNG KÊ DOANH THU");
-                ShowContentText("Thống kê doanh thu theo ngày, tuần, tháng từ bảng LichSuThanhToan.");
+                if (ucBaoCaoDoanhThu == null)
+                {
+                    ucBaoCaoDoanhThu = new UC_BaoCaoDoanhThu();
+                }
+                HienThiUserControl(ucBaoCaoDoanhThu);
+            }
+            // 9. Quản Lý Tài Khoản
+            else if (btn == btnTK)
+            {
+                HighlightButton(btn, "QUẢN LÝ TÀI KHOẢN");
+                if (ucThongTinChuSan == null)
+                {
+                    ucThongTinChuSan = new UC_ThongTinChuSan();
+                }
+                HienThiUserControl(ucThongTinChuSan);
             }
         }
 
@@ -189,7 +206,7 @@ namespace quanlydatsan
                 }
                 else
                 {
-                    test formNewLogin = new test();
+                    FormLogin formNewLogin = new FormLogin();
                     formNewLogin.Show();
                 }
                 this.Dispose();

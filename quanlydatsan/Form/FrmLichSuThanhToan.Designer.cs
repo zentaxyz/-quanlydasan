@@ -100,7 +100,9 @@
             // 
             // dtpTGthanhtoan
             // 
-            dtpTGthanhtoan.Format = DateTimePickerFormat.Short;
+            dtpTGthanhtoan.CustomFormat = "dd/MM/yyyy";
+            dtpTGthanhtoan.Enabled = false;
+            dtpTGthanhtoan.Format = DateTimePickerFormat.Custom;
             dtpTGthanhtoan.Location = new Point(501, 110);
             dtpTGthanhtoan.Name = "dtpTGthanhtoan";
             dtpTGthanhtoan.Size = new Size(379, 27);
@@ -207,6 +209,7 @@
             // dgvLSThanhtoan
             // 
             dgvLSThanhtoan.AllowUserToAddRows = false;
+            dgvLSThanhtoan.AllowUserToDeleteRows = false;
             dgvLSThanhtoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLSThanhtoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLSThanhtoan.Location = new Point(16, 384);

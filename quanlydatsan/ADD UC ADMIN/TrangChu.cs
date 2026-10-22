@@ -1,4 +1,5 @@
-﻿using System;
+﻿using quanlydatsan.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,7 @@ namespace quanlydatsan
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            LoadThongkeCards();
-            LoadLichdathomnay();
+            LamMoiDuLieu();
         }
 
         private void LoadThongkeCards()
@@ -57,7 +57,7 @@ namespace quanlydatsan
                 string sqlDoanhthu = @"
              SELECT ISNULL(SUM(TongTien), 0)
              FROM PhieuDatSan
-             WHERE CONVERT(date, NgaySuDung) = CONVERT(date, GETDATE())";
+             WHERE CONVERT(date, NgaySuDung) = CONVERT(date, GETDATE()) AND MaTrangThai='TT02'";
                 DataTable dtDoanhthu = db.ReadData(sqlDoanhthu);
                 if (dtDoanhthu != null && dtDoanhthu.Rows.Count > 0)
                 {
@@ -99,6 +99,11 @@ namespace quanlydatsan
             {
                 MessageBox.Show("Lỗi tải lịch đặt hôm nay: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void LamMoiDuLieu()
+        {
+            LoadThongkeCards();
+            LoadLichdathomnay();
         }
     }
 }

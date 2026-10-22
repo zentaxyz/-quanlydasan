@@ -4,9 +4,9 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace quanlydatsan
+namespace quanlydatsan.Class
 {
-    internal class DatabaseKH
+    internal class DatabaseC
     {
         protected SqlConnection GetConnection()
         {

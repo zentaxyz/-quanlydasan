@@ -10,6 +10,7 @@ namespace quanlydatsan
         private Button currentActiveButton;
 
         // 1. Khai báo sẵn các biến lưu trữ UserControl (Mặc định là null)
+        private UC_TrangChu ucTrangChu;
         private UC_Datsan ucDatsan;
         private UC_LichSuDatSan ucLichSu;
         private UC_ThongTinCaNhan ucProfile;
@@ -25,8 +26,9 @@ namespace quanlydatsan
             lblUserRole.Text = "Khách Hàng";
             lblDateTime.Text = "Hôm nay: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
 
-            // Mặc định hiển thị trang Đặt Sân hoặc Trang Chủ
-            btnBooking.PerformClick();
+            // Mặc định khởi động sẽ hiển thị Trang Chủ (nếu có nút btnHome) hoặc Đặt Sân
+            // Bạn có thể đổi thành btnHome.PerformClick(); nếu muốn mở trang chủ đầu tiên
+            btnHome.PerformClick();
         }
 
         #region Xử lý chuyển tab không tạo mới liên tục
@@ -35,7 +37,23 @@ namespace quanlydatsan
             Button btn = sender as Button;
             if (btn == null) return;
 
-            if (btn == btnBooking)
+            if (btn == btnHome)
+            {
+                SetActiveNavButton(btn, "TRANG CHỦ HỆ THỐNG");
+
+                if (ucTrangChu == null)
+                {
+                    ucTrangChu = new UC_TrangChu();
+                    ThemControlVaoPanel(ucTrangChu);
+                }
+                else
+                {
+                    ucTrangChu.BringToFront();
+                    ucTrangChu.LoadThongTinChaoMung();
+                    ucTrangChu.LoadThongKeTongQuan(); // Cập nhật lại số liệu thống kê mới nhất
+                }
+            }
+            else if (btn == btnBooking)
             {
                 SetActiveNavButton(btn, "ĐẶT SÂN THỂ THAO");
 
@@ -132,7 +150,7 @@ namespace quanlydatsan
                 }
                 else
                 {
-                    test newLogin = new test();
+                    FormLogin newLogin = new FormLogin();
                     newLogin.Show();
                 }
 

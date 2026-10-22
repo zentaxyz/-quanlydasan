@@ -55,9 +55,13 @@
             // 
             // dgvSan
             // 
+            dgvSan.AllowUserToAddRows = false;
+            dgvSan.AllowUserToDeleteRows = false;
             dgvSan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSan.Location = new Point(13, 260);
+            dgvSan.MultiSelect = false;
             dgvSan.Name = "dgvSan";
+            dgvSan.ReadOnly = true;
             dgvSan.RowHeadersWidth = 51;
             dgvSan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSan.Size = new Size(1354, 477);
