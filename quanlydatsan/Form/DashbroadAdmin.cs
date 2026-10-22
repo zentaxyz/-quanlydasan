@@ -199,15 +199,15 @@ namespace quanlydatsan
                 Session.FullName = null;
                 Session.Role = null;
 
-                Form formLogin = Application.OpenForms["test"];
+                Form formLogin = Application.OpenForms["FormLogin"];
                 if (formLogin != null)
                 {
                     formLogin.Show();
                 }
                 else
                 {
-                    FormLogin formNewLogin = new FormLogin();
-                    formNewLogin.Show();
+                    FormLogin newLogin = new FormLogin();
+                    newLogin.Show();
                 }
                 this.Dispose();
             }

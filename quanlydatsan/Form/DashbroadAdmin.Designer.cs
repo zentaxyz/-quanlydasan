@@ -63,7 +63,7 @@
             pnlSidebar.Dock = DockStyle.Left;
             pnlSidebar.Location = new Point(0, 0);
             pnlSidebar.Name = "pnlSidebar";
-            pnlSidebar.Size = new Size(250, 720);
+            pnlSidebar.Size = new Size(250, 761);
             pnlSidebar.TabIndex = 0;
             // 
             // btnTK
@@ -147,7 +147,7 @@
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(0, 670);
+            btnLogout.Location = new Point(0, 711);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(250, 50);
             btnLogout.TabIndex = 6;
@@ -332,7 +332,7 @@
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(250, 0);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(894, 60);
+            pnlHeader.Size = new Size(984, 60);
             pnlHeader.TabIndex = 1;
             // 
             // lblTime
@@ -340,7 +340,7 @@
             lblTime.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblTime.Font = new Font("Segoe UI", 9.5F);
             lblTime.ForeColor = Color.FromArgb(100, 116, 139);
-            lblTime.Location = new Point(594, 20);
+            lblTime.Location = new Point(684, 20);
             lblTime.Name = "lblTime";
             lblTime.Size = new Size(280, 20);
             lblTime.TabIndex = 1;
@@ -365,14 +365,14 @@
             pnlContent.Location = new Point(250, 60);
             pnlContent.Name = "pnlContent";
             pnlContent.Padding = new Padding(20);
-            pnlContent.Size = new Size(894, 660);
+            pnlContent.Size = new Size(984, 701);
             pnlContent.TabIndex = 2;
             // 
             // DashbroadAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1144, 720);
+            ClientSize = new Size(1234, 761);
             Controls.Add(pnlContent);
             Controls.Add(pnlHeader);
             Controls.Add(pnlSidebar);

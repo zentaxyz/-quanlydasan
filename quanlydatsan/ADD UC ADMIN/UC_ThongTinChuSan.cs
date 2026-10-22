@@ -8,7 +8,7 @@ namespace quanlydatsan
     public partial class UC_ThongTinChuSan : UserControl
     {
         // Có thể dùng Database hoặc DatabaseKH tùy thuộc vào class DB bạn sử dụng cho Admin
-        private readonly DatabaseC db = new DatabaseC();
+        private readonly Database db = new Database();
         private string currentPasswordInDb = "";
 
         // Sự kiện callback để form DashbroadAdmin cập nhật lại tên hiển thị sau khi sửa
@@ -38,10 +38,10 @@ namespace quanlydatsan
                              FROM ChuSan 
                              WHERE MaChuSan = '{safeUserId}'";
 
-            DataSet ds = db.GetData(query);
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            DataTable dt = db.ReadData(query);
+            if (dt != null && dt.Rows.Count > 0)
             {
-                DataRow r = ds.Tables[0].Rows[0];
+                DataRow r = dt.Rows[0];
 
                 txtMaChuSan.Text = r["MaChuSan"].ToString();
                 txtTenChuSan.Text = r["TenChuSan"].ToString();
@@ -51,12 +51,12 @@ namespace quanlydatsan
 
                 currentPasswordInDb = r["MatKhau"].ToString();
 
-                // Cập nhật card bên trái
+                
                 lblCardTenChuSan.Text = txtTenChuSan.Text;
                 lblCardMaChuSan.Text = $"Mã Admin: {txtMaChuSan.Text}";
             }
 
-            // Đặt lại nhóm đổi mật khẩu
+            
             chkDoiMatKhau.Checked = false;
             txtMatKhauCu.Clear();
             txtMatKhauMoi.Clear();
@@ -102,7 +102,7 @@ namespace quanlydatsan
                 return;
             }
 
-            // Kiểm tra mật khẩu nếu admin chọn đổi mật khẩu
+            
             string updatePasswordClause = "";
             if (chkDoiMatKhau.Checked)
             {
@@ -140,26 +140,37 @@ namespace quanlydatsan
                 updatePasswordClause = $", MatKhau = '{mkMoi.Replace("'", "''")}'";
             }
 
-            string safeMaChuSan = txtMaChuSan.Text.Replace("'", "''");
-            string updateQuery = $@"
-                UPDATE ChuSan
-                SET TenChuSan = N'{tenChuSan.Replace("'", "''")}',
-                    SoDienThoai = '{sdt.Replace("'", "''")}',
-                    Email = '{email.Replace("'", "''")}'
-                    {updatePasswordClause}
-                WHERE MaChuSan = '{safeMaChuSan}'";
+            try
+            {
+                string safeMaChuSan = txtMaChuSan.Text.Replace("'", "''");
+                string updateQuery = $@"
+                    UPDATE ChuSan
+                    SET TenChuSan = N'{tenChuSan.Replace("'", "''")}',
+                        SoDienThoai = '{sdt.Replace("'", "''")}',
+                        Email = '{email.Replace("'", "''")}'
+                        {updatePasswordClause}
+                    WHERE MaChuSan = '{safeMaChuSan}'";
 
-            db.setData(updateQuery, "Cập nhật thông tin quản trị viên thành công!");
+                
+                db.WriteData(updateQuery);
 
-            // Cập nhật lại Session
-            Session.FullName = tenChuSan;
-            Session.Phone = sdt;
-            Session.Email = email;
+                MessageBox.Show("Cập nhật thông tin quản trị viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Bắn sự kiện ra ngoài form DashbroadAdmin
-            OnProfileUpdated?.Invoke(tenChuSan);
+                
+                Session.FullName = tenChuSan;
+                Session.Phone = sdt;
+                Session.Email = email;
 
-            LoadThongTinChuSan();
+                
+                OnProfileUpdated?.Invoke(tenChuSan);
+
+               
+                LoadThongTinChuSan();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 

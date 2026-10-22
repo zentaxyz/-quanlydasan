@@ -143,7 +143,7 @@ namespace quanlydatsan
                 Session.FullName = null;
                 Session.Role = null;
 
-                Form formLogin = Application.OpenForms["test"];
+                Form formLogin = Application.OpenForms["FormLogin"];
                 if (formLogin != null)
                 {
                     formLogin.Show();

@@ -239,7 +239,7 @@ namespace quanlydatsan.All_User_control
                 ? Convert.ToInt32(ds.Tables[0].Rows[0][0])
                 : 1;
 
-            return $"PD {stt:D3}"; // D2: PD01, PD02... (Nếu muốn PD1, PD2 thì đổi thành $"PD{stt}")
+            return $"PD{stt:D3}"; // D2: PD01, PD02... (Nếu muốn PD1, PD2 thì đổi thành $"PD{stt}")
         }
 
         private void btnXacNhanDat_Click(object sender, EventArgs e)
