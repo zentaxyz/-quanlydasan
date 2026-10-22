@@ -1,10 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\New folder\\baitapC#\\quanlydatsan\\",
+  "WorkspaceRootPath": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|d:\\new folder\\baitapc#\\quanlydatsan\\quanlydatsan\\add uc admin\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\trangchu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\form\\dashbroadadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\form\\dashbroadadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\ucquanlylichdat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\ucquanlylichdat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\uc_qltk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\uc_qltk.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\ucphieudatsan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\ucphieudatsan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\ucphieudatsan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\ucphieudatsan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|c:\\users\\jackm\\desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\ucngayle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\ucngayle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\add uc admin\\ucngayle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{83BE7B8C-4D73-3BF4-992C-554C264D6C02}|quanlydatsan\\quanlydatsan.csproj|solutionrelative:quanlydatsan\\add uc admin\\ucngayle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +42,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -26,16 +58,103 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DashbroadAdmin.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\Form\\DashbroadAdmin.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\Form\\DashbroadAdmin.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\Form\\DashbroadAdmin.cs",
+              "RelativeToolTip": "quanlydatsan\\Form\\DashbroadAdmin.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA8wDMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T07:00:13.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "TrangChu.cs",
-              "DocumentMoniker": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
               "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
-              "ToolTip": "D:\\New folder\\baitapC#\\quanlydatsan\\quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
               "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\TrangChu.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAgwDsAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-22T06:55:06.395Z",
+              "WhenOpened": "2026-10-22T06:55:36.071Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UC_QLTK.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UC_QLTK.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UC_QLTK.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UC_QLTK.cs",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UC_QLTK.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAADcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T06:32:57.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UCPhieuDatSan.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAqwGUAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T04:02:45.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UCPhieuDatSan.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs [Design]",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UCPhieuDatSan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T04:00:24.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UCQuanLyLichDat.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCQuanLyLichDat.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UCQuanLyLichDat.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCQuanLyLichDat.cs",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UCQuanLyLichDat.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAiwCAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T03:36:35.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UCNgayLe.cs",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAswM0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T03:31:33.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UCNgayLe.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "RelativeDocumentMoniker": "quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs",
+              "ToolTip": "C:\\Users\\JackM\\Desktop\\-quanlydasan-master\\quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs [Design]",
+              "RelativeToolTip": "quanlydatsan\\ADD UC ADMIN\\UCNgayLe.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-22T03:31:31.006Z"
             }
           ]
         }

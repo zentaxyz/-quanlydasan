@@ -49,6 +49,7 @@ namespace quanlydatsan
                     ucTrangChu = new TrangChu();
                 }
                 HienThiUserControl(ucTrangChu);
+                ucTrangChu.LamMoiDuLieu();
             }
             // 2. Quản Lý Danh Sách Sân
             else if (btn == btnDSS)

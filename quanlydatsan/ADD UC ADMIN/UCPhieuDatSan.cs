@@ -23,35 +23,33 @@ namespace quanlydatsan
         {
             try
             {
-                using (SqlConnection conn =
-                       new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string sql = @"
                     SELECT
-                    p.MaPhieu,
+                    p.MaPhieu as [Mã phiếu],
                     p.MaKhach,
-                    k.TenKhach,
+                    k.TenKhach as [Khách hàng],
                     p.MaSan,
-                    s.TenSan,
-                    l.TenLoaiSan,
-                    p.NgayDat,
-                    p.NgaySuDung,
-                    p.ThoiGianBatDau,
-                    p.ThoiGianKetThuc,
-                    p.TongTien,
-                    p.MaTrangThai,
-                    t.TenTrangThai,
+                    s.TenSan as [Sân],
+                    l.TenLoaiSan as [Loại sân],
+                    p.NgayDat as [Ngày đặt],
+                    p.NgaySuDung as [Ngày sử dụng],
+                    p.ThoiGianBatDau as [Giờ bắt đầu],
+                    p.ThoiGianKetThuc as [Giờ kết thúc],
+                    p.TongTien as [Tổng tiền],
+                    p.MaTrangThai ,
+                    t.TenTrangThai as [Trạng thái],
                     p.XacNhanThanhToan,
                     CASE
-                        WHEN p.XacNhanThanhToan = 1 THEN N'Đã thanh toán'
-                        ELSE N'Chưa thanh toán'
-                    END AS TrangThaiThanhToan
+                        WHEN p.XacNhanThanhToan = 1 THEN N'Đã thanh toán' ELSE N'Chưa thanh toán'
+                    END AS [Thanh toán]
                     FROM PhieuDatSan p
-                    INNER JOIN KhachHang k ON p.MaKhach = k.MaKhach
-                    INNER JOIN San s ON p.MaSan = s.MaSan
-                    INNER JOIN LoaiSan l ON s.MaLoaiSan = l.MaLoaiSan
-                    INNER JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
-                    ORDER BY p.MaPhieu ASC";
+                    JOIN KhachHang k ON p.MaKhach = k.MaKhach
+                    JOIN San s ON p.MaSan = s.MaSan
+                    JOIN LoaiSan l ON s.MaLoaiSan = l.MaLoaiSan
+                    JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
+                    ORDER BY p.MaPhieu DESC";
 
                     using (SqlDataAdapter da =
                            new SqlDataAdapter(sql, conn))
@@ -60,41 +58,29 @@ namespace quanlydatsan
                         da.Fill(dt);
                         dgvLichDat.AutoGenerateColumns = true;
                         dgvLichDat.DataSource = dt;
-                        dgvLichDat.Columns["ThoiGianBatDau"].DefaultCellStyle.Format = @"hh\:mm";
-                        dgvLichDat.Columns["ThoiGianKetThuc"].DefaultCellStyle.Format = @"hh\:mm";
-                        dgvLichDat.Columns["NgayDat"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                        dgvLichDat.Columns["NgaySuDung"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dgvLichDat.Columns["Giờ bắt đầu"].DefaultCellStyle.Format = @"hh\:mm";
+                        dgvLichDat.Columns["Giờ kết thúc"].DefaultCellStyle.Format = @"hh\:mm";
+                        dgvLichDat.Columns["Ngày đặt"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dgvLichDat.Columns["Ngày sử dụng"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dgvLichDat.Columns["Tổng tiền"].DefaultCellStyle.Format = "N0";
                         //Ẩn các cột ko cần thiết
                         dgvLichDat.Columns["MaKhach"].Visible = false;
                         dgvLichDat.Columns["MaSan"].Visible = false;
                         dgvLichDat.Columns["MaTrangThai"].Visible = false;
                         dgvLichDat.Columns["XacNhanThanhToan"].Visible = false;
-                        dgvLichDat.Columns["TongTien"].DefaultCellStyle.Format = "N0";
-                        // Đổi tên tiêu đề
-                        dgvLichDat.Columns["MaPhieu"].HeaderText = "Mã phiếu";
-                        dgvLichDat.Columns["TenKhach"].HeaderText = "Khách hàng";
-                        dgvLichDat.Columns["TenSan"].HeaderText = "Sân";
-                        dgvLichDat.Columns["TenLoaiSan"].HeaderText = "Loại sân";
-                        dgvLichDat.Columns["NgayDat"].HeaderText = "Ngày đặt";
-                        dgvLichDat.Columns["NgaySuDung"].HeaderText = "Ngày sử dụng";
-                        dgvLichDat.Columns["ThoiGianBatDau"].HeaderText = "Giờ bắt đầu";
-                        dgvLichDat.Columns["ThoiGianKetThuc"].HeaderText = "Giờ kết thúc";
-                        dgvLichDat.Columns["TongTien"].HeaderText = "Tổng tiền";
-                        dgvLichDat.Columns["TenTrangThai"].HeaderText = "Trạng thái";
-                        dgvLichDat.Columns["TrangThaiThanhToan"].HeaderText = "Thanh toán";
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tải danh sách phiếu đặt sân:\n" + ex.Message,"Thông báo lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi tải danh sách phiếu đặt sân:\n" + ex.Message, "Thông báo lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void LoadComboBox()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-               
+
                 conn.Open();
                 SqlDataAdapter daKhach = new SqlDataAdapter(
                 "SELECT MaKhach, TenKhach FROM KhachHang", conn);
@@ -121,68 +107,112 @@ namespace quanlydatsan
                 cboTrangthai.ValueMember = "MaTrangThai";
             }
         }
+        private bool KiemTraSanTrong(string maPhieuBoQua = null)
+        {
+            if (cboSan.SelectedValue == null || cboSan.SelectedValue is DataRowView)
+            {
+                txtTrangThaiSan.Text = "";
+                return false;
+            }
+            TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
+            TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
+            if (gioBatDau >= gioKetThuc)
+            {
+                txtTrangThaiSan.Clear();
+                return false;
+            }
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string sql = @"
+                SELECT COUNT(*)
+                FROM PhieuDatSan p
+                JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
+                WHERE p.MaSan = @MaSan
+                AND p.NgaySuDung = @NgaySuDung
+                AND p.ThoiGianBatDau < @GioKetThuc
+                AND p.ThoiGianKetThuc > @GioBatDau
+                AND t.TenTrangThai <> N'Hủy'
+                AND (@MaPhieu IS NULL OR p.MaPhieu <> @MaPhieu)";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaSan", cboSan.SelectedValue.ToString());
+                        cmd.Parameters.Add("@NgaySuDung", SqlDbType.Date).Value = dtpNgaydung.Value.Date;
+                        cmd.Parameters.Add("@GioBatDau", SqlDbType.Time).Value = gioBatDau;
+                        cmd.Parameters.Add("@GioKetThuc", SqlDbType.Time).Value = gioKetThuc;
+                        cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = string.IsNullOrWhiteSpace(maPhieuBoQua) ? (object)DBNull.Value : maPhieuBoQua.Trim();
+                        conn.Open();
+
+                        int soPhieuTrung = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (soPhieuTrung > 0)
+                        {
+                            txtTrangThaiSan.Text = "sân full";
+                            return false;
+                        }
+                        txtTrangThaiSan.Text = "sân trống";
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                txtTrangThaiSan.Text = "Không kiểm tra được";
+                MessageBox.Show("Lỗi kiểm tra trạng thái sân: " + ex.Message);
+                return false;
+            }
+        }
         private void dgvLichDat_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
             DataGridViewRow row = dgvLichDat.Rows[e.RowIndex];
-            txtMaPhieu.Text = row.Cells["MaPhieu"].Value?.ToString();
+            txtMaPhieu.Text = row.Cells["Mã phiếu"].Value?.ToString();
             cboKhach.SelectedValue = row.Cells["MaKhach"].Value;
             cboSan.SelectedValue = row.Cells["MaSan"].Value;
-            TimeSpan gioBatDau = TimeSpan.Parse(row.Cells["ThoiGianBatDau"].Value.ToString());
+            TimeSpan gioBatDau = TimeSpan.Parse(row.Cells["Giờ bắt đầu"].Value.ToString());
             dtpGioBatDau.Value = DateTime.Today.Add(gioBatDau);
-            dtpNgaydung.Value = Convert.ToDateTime(row.Cells["NgaySuDung"].Value);
-            TimeSpan gioKetThuc = TimeSpan.Parse(row.Cells["ThoiGianKetThuc"].Value.ToString());
+            dtpNgaydung.Value = Convert.ToDateTime(row.Cells["Ngày sử dụng"].Value);
+            TimeSpan gioKetThuc = TimeSpan.Parse(row.Cells["Giờ kết thúc"].Value.ToString());
             dtpGioKetThuc.Value = DateTime.Today.Add(gioKetThuc);
-            TxtTongTien.Text = Convert.ToDecimal(row.Cells["TongTien"].Value).ToString("N0");
+            TxtTongTien.Text = Convert.ToDecimal(row.Cells["Tổng tiền"].Value).ToString("N0");
             cboTrangthai.SelectedValue = row.Cells["MaTrangThai"].Value;
             chkXacNhanThanhToan.Checked = Convert.ToBoolean(row.Cells["XacNhanThanhToan"].Value);
         }
         private void TinhTongTien()
         {
-            if (cboSan.SelectedValue == null ||
-                dtpGioBatDau.Value.TimeOfDay >=
-                dtpGioKetThuc.Value.TimeOfDay)
+            if (cboSan.SelectedValue == null || dtpGioBatDau.Value.TimeOfDay >= dtpGioKetThuc.Value.TimeOfDay)
             {
                 TxtTongTien.Text = "0";
                 return;
             }
-
             TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
             TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
-
             double soGio = (gioKetThuc - gioBatDau).TotalMinutes / 60.0;
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string sql = @"
                 SELECT GiaTheoGio
-                FROM LoaiSan ls
-                JOIN San s ON s.MaLoaiSan = ls.MaLoaiSan
+                FROM LoaiSan l
+                JOIN San s ON s.MaLoaiSan = l.MaLoaiSan
                 WHERE s.MaSan = @MaSan";
-
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        if (cboSan.SelectedValue == null ||cboSan.SelectedValue is DataRowView)
+                        if (cboSan.SelectedValue == null || cboSan.SelectedValue is DataRowView)
                         {
                             return;
                         }
-
-                        cmd.Parameters.AddWithValue("@MaSan",cboSan.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@MaSan", cboSan.SelectedValue.ToString());
                         conn.Open();
-
                         object ketQua = cmd.ExecuteScalar();
-
                         if (ketQua == null || ketQua == DBNull.Value)
                         {
                             TxtTongTien.Text = "0";
                             return;
                         }
-
                         decimal giaTheoGio = Convert.ToDecimal(ketQua);
-
                         string sqlNgayLe = @"
                         SELECT COUNT(*) FROM NgayLe
                         WHERE Ngay = @NgaySuDung";
@@ -210,28 +240,25 @@ namespace quanlydatsan
             TinhTongTien();
             KiemTraSanTrong();
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtMaPhieu.Text)){
+            if (string.IsNullOrWhiteSpace(txtMaPhieu.Text))
+            {
                 MessageBox.Show("Vui lòng chọn phiếu cần sửa!");
                 return;
             }
             TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
             TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
 
-            if (gioBatDau >= gioKetThuc){
+            if (gioBatDau >= gioKetThuc)
+            {
                 MessageBox.Show("Giờ kết thúc phải sau giờ bắt đầu!");
                 return;
             }
-            if (!KiemTraSanTrong())
+            if (!KiemTraSanTrong(txtMaPhieu.Text.Trim()))
             {
                 MessageBox.Show(
-                    "Sân đã được đặt trong khung giờ này hoặc thời gian không hợp lệ!",
-                    "Không thể lưu phiếu",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                    "Sân đã được đặt trong khung giờ này hoặc thời gian không hợp lệ!", "Không thể lưu phiếu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -266,27 +293,28 @@ namespace quanlydatsan
                         {
                             MessageBox.Show("Cập nhật phiếu đặt sân thành công!");
                             LoadDanhSachPhieuDatSan();
+                            KiemTraSanTrong(txtMaPhieu.Text.Trim());
                         }
                         else
                             MessageBox.Show("Không tìm thấy phiếu cần cập nhật!");
                     }
                 }
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 MessageBox.Show("Lỗi khi lưu: " + ex.Message);
             }
         }
-            private void btnXoa_Click(object sender, EventArgs e)
-            {
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
             if (string.IsNullOrWhiteSpace(txtMaPhieu.Text))
             {
-                MessageBox.Show("Vui lòng chọn phiếu đặt sân cần xóa!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn phiếu đặt sân cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu đặt sân "+ txtMaPhieu.Text + " không?","Xác nhận xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu đặt sân " + txtMaPhieu.Text + " không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes)
                 return;
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -299,7 +327,7 @@ namespace quanlydatsan
                         int soDong = cmd.ExecuteNonQuery();
                         if (soDong > 0)
                         {
-                            MessageBox.Show("Xóa phiếu đặt sân thành công!","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            MessageBox.Show("Xóa phiếu đặt sân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LoadDanhSachPhieuDatSan();
                             txtMaPhieu.Clear();
                             cboKhach.SelectedIndex = -1;
@@ -315,108 +343,21 @@ namespace quanlydatsan
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Không thể xóa phiếu đặt sân. Có thể phiếu đang được dữ liệu khác tham chiếu.\n"+ ex.Message,"Lỗi SQL",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Không thể xóa phiếu đặt sân. Có thể phiếu đang được dữ liệu khác tham chiếu.\n" + ex.Message, "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa phiếu: " + ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi xóa phiếu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-            private void btnTheoten_Click(object sender, EventArgs e)
-            {
-            string tenKhach = TxtTimten.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(tenKhach)){
-                MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm!");
-                TxtTimten.Focus();
-                return;
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    string sql = @"
-                SELECT
-                    p.MaPhieu,
-                    p.MaKhach,
-                    k.TenKhach,
-                    p.MaSan,
-                    s.TenSan,
-                    p.NgayDat,
-                    p.NgaySuDung,
-                    p.ThoiGianBatDau,
-                    p.ThoiGianKetThuc,
-                    p.TongTien,
-                    p.MaTrangThai,
-                    t.TenTrangThai,
-                    p.XacNhanThanhToan,
-                    CASE
-                        WHEN p.XacNhanThanhToan = 1
-                            THEN N'Đã thanh toán'
-                        ELSE N'Chưa thanh toán'
-                    END AS TrangThaiThanhToan
-                FROM PhieuDatSan p
-                INNER JOIN KhachHang k ON p.MaKhach = k.MaKhach
-                INNER JOIN San s ON p.MaSan = s.MaSan
-                INNER JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
-                WHERE k.TenKhach LIKE @TenKhach
-                ORDER BY p.NgayDat DESC";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.Add("@TenKhach", SqlDbType.NVarChar, 100)
-                            .Value = "%" + tenKhach + "%";
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        dgvLichDat.DataSource = dt;
-                        // Ẩn các cột mã không cần hiển thị
-                            dgvLichDat.Columns["MaKhach"].Visible = false;
-                            dgvLichDat.Columns["MaSan"].Visible = false;
-                            dgvLichDat.Columns["MaTrangThai"].Visible = false;
-                            dgvLichDat.Columns["XacNhanThanhToan"].Visible = false;
-                            dgvLichDat.Columns["TrangThaiThanhToan"].HeaderText ="Thanh toán";
-
-                        if (dt.Rows.Count == 0){
-                            MessageBox.Show("Không tìm thấy phiếu đặt sân của khách hàng này!");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex){
-                MessageBox.Show("Lỗi tìm kiếm: " + ex.Message);
-               }
-            }
-            private void btnHientatca_Click(object sender, EventArgs e)
-            {
-            TxtTimten.Clear();
-            LoadDanhSachPhieuDatSan();
-            }
-            private void btnThanhtoan_Click(object sender, EventArgs e)
-            {
-            if (dgvLichDat.CurrentRow == null)
-            {
-                MessageBox.Show("Vui lòng chọn phiếu đặt sân!");
-                return;
-            }
-            DataGridViewRow row = dgvLichDat.CurrentRow;
-            string maPhieu = row.Cells["MaPhieu"].Value.ToString();
-            decimal tongTien = Convert.ToDecimal(row.Cells["TongTien"].Value
-            );
-            FrmLichSuThanhToan frm =new FrmLichSuThanhToan(connectionString, maPhieu,tongTien);
-            frm.ShowDialog();
-            LoadDanhSachPhieuDatSan();
-            }
         private void btnTao_Click(object sender, EventArgs e)
         {
             DateTime ngaySuDung = dtpNgaydung.Value.Date;
             TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
             TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
-            if (!KiemTraSanTrong())
+            if (!KiemTraSanTrong(null))
             {
-                MessageBox.Show("Sân đã được đặt trong khung giờ này hoặc thời gian không hợp lệ!","Không thể tạo phiếu",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Sân đã được đặt trong khung giờ này hoặc thời gian không hợp lệ!", "Không thể tạo phiếu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -433,7 +374,6 @@ namespace quanlydatsan
                     cmd.Parameters.Add("@ThoiGianBatDau", SqlDbType.Time).Value = gioBatDau;
                     cmd.Parameters.Add("@ThoiGianKetThuc", SqlDbType.Time).Value = gioKetThuc;
                     conn.Open();
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -455,72 +395,108 @@ namespace quanlydatsan
                 chkXacNhanThanhToan.Checked = false;
                 LoadDanhSachPhieuDatSan();
 
-                MessageBox.Show("Tạo phiếu đặt sân thành công!\n\n" +"Mã phiếu: " + maPhieuMoi + "\n" +"Tổng tiền: " + tongTien.ToString("N0") + " VNĐ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Tạo phiếu đặt sân thành công!\n\n" + "Mã phiếu: " + maPhieuMoi + "\n" + "Tổng tiền: " + tongTien.ToString("N0") + " VNĐ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message,"Không thể tạo phiếu",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Không thể tạo phiếu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi tạo phiếu: " + ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi tạo phiếu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private bool KiemTraSanTrong()
+        private void btnTheoten_Click(object sender, EventArgs e)
         {
-            if (cboSan.SelectedValue == null ||cboSan.SelectedValue is DataRowView)
+            string tenKhach = TxtTimten.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(tenKhach))
             {
-                txtTrangThaiSan.Text = "";
-                return false;
-            }
-            TimeSpan gioBatDau = dtpGioBatDau.Value.TimeOfDay;
-            TimeSpan gioKetThuc = dtpGioKetThuc.Value.TimeOfDay;
-            if (gioBatDau >= gioKetThuc)
-            {
-                txtTrangThaiSan.Clear();
-                return false;
+                MessageBox.Show("Vui lòng nhập tên khách hàng cần tìm!");
+                TxtTimten.Focus();
+                return;
             }
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     string sql = @"
-                SELECT COUNT(*)
-                FROM PhieuDatSan p
-                JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
-                WHERE p.MaSan = @MaSan
-                  AND p.NgaySuDung = @NgaySuDung
-                  AND p.ThoiGianBatDau < @GioKetThuc
-                  AND p.ThoiGianKetThuc > @GioBatDau
-                  AND t.TenTrangThai <> N'Hủy'
-                  AND p.MaPhieu <> @MaPhieu";
+                    SELECT
+                        p.MaPhieu AS [Mã phiếu],
+                        p.MaKhach,
+                        k.TenKhach AS [Khách hàng],
+                        p.MaSan,
+                        s.TenSan AS [Sân],
+                        l.TenLoaiSan AS [Loại sân],
+                        p.NgayDat AS [Ngày đặt],
+                        p.NgaySuDung AS [Ngày sử dụng],
+                        p.ThoiGianBatDau AS [Giờ bắt đầu],
+                        p.ThoiGianKetThuc AS [Giờ kết thúc],
+                        p.TongTien AS [Tổng tiền],
+                        p.MaTrangThai,
+                        t.TenTrangThai AS [Trạng thái],
+                        p.XacNhanThanhToan,
+                        CASE
+                            WHEN p.XacNhanThanhToan = 1 THEN N'Đã thanh toán' ELSE N'Chưa thanh toán'
+                        END AS [Thanh toán]
+                    FROM PhieuDatSan p
+                    JOIN KhachHang k ON p.MaKhach = k.MaKhach
+                    JOIN San s ON p.MaSan = s.MaSan
+                    JOIN LoaiSan l ON s.MaLoaiSan = l.MaLoaiSan
+                    JOIN TrangThai t ON p.MaTrangThai = t.MaTrangThai
+                    WHERE k.TenKhach LIKE @TenKhach
+                    ORDER BY p.NgayDat DESC";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaSan",cboSan.SelectedValue.ToString());
-                        cmd.Parameters.Add("@NgaySuDung", SqlDbType.Date).Value = dtpNgaydung.Value.Date;
-                        cmd.Parameters.Add("@GioBatDau", SqlDbType.Time).Value = gioBatDau;
-                        cmd.Parameters.Add("@GioKetThuc", SqlDbType.Time).Value = gioKetThuc;
-                        cmd.Parameters.Add("@MaPhieu", SqlDbType.VarChar, 10).Value = string.IsNullOrWhiteSpace(txtMaPhieu.Text)? "" : txtMaPhieu.Text.Trim();
-                        conn.Open();
+                        cmd.Parameters.Add("@TenKhach", SqlDbType.NVarChar, 100)
+                            .Value = "%" + tenKhach + "%";
 
-                        int soPhieuTrung = Convert.ToInt32(cmd.ExecuteScalar());
-                        if (soPhieuTrung > 0)
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvLichDat.DataSource = dt;
+                        // Ẩn các cột mã không cần hiển thị
+                        dgvLichDat.Columns["MaKhach"].Visible = false;
+                        dgvLichDat.Columns["MaSan"].Visible = false;
+                        dgvLichDat.Columns["MaTrangThai"].Visible = false;
+                        dgvLichDat.Columns["XacNhanThanhToan"].Visible = false;
+                        if (dt.Rows.Count == 0)
                         {
-                            txtTrangThaiSan.Text = "sân full";
-                            return false;
+                            MessageBox.Show("Không tìm thấy phiếu đặt sân của khách hàng này!");
                         }
-                        txtTrangThaiSan.Text = "sân trống";
-                        return true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                txtTrangThaiSan.Text = "Không kiểm tra được";
-                MessageBox.Show(
-                    "Lỗi kiểm tra trạng thái sân: " + ex.Message);
-                return false;
+                MessageBox.Show("Lỗi tìm kiếm: " + ex.Message);
             }
+        }
+        private void btnHientatca_Click(object sender, EventArgs e)
+        {
+            TxtTimten.Clear();
+            LoadDanhSachPhieuDatSan();
+        }
+        private void btnThanhtoan_Click(object sender, EventArgs e)
+        {
+            if (dgvLichDat.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu đặt sân!");
+                return;
+            }
+            DataGridViewRow row = dgvLichDat.CurrentRow;
+            string maPhieu = row.Cells["Mã phiếu"].Value.ToString();
+            decimal tongTien = Convert.ToDecimal(row.Cells["Tổng tiền"].Value
+            );
+            FrmLichSuThanhToan frm = new FrmLichSuThanhToan(connectionString, maPhieu, tongTien);
+            frm.ShowDialog();
+            LoadDanhSachPhieuDatSan();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadDanhSachPhieuDatSan();
+            LoadComboBox();
         }
     }
 }

@@ -59,6 +59,7 @@ namespace quanlydatsan
             TxtTimten = new TextBox();
             btnTheoten = new Button();
             btnHientatca = new Button();
+            btnLamMoi = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLichDat).BeginInit();
             SuspendLayout();
@@ -76,6 +77,7 @@ namespace quanlydatsan
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnLamMoi);
             groupBox1.Controls.Add(txtTrangThaiSan);
             groupBox1.Controls.Add(label10);
             groupBox1.Controls.Add(btnTao);
@@ -108,7 +110,7 @@ namespace quanlydatsan
             // 
             // txtTrangThaiSan
             // 
-            txtTrangThaiSan.Location = new Point(777, 238);
+            txtTrangThaiSan.Location = new Point(768, 238);
             txtTrangThaiSan.Name = "txtTrangThaiSan";
             txtTrangThaiSan.ReadOnly = true;
             txtTrangThaiSan.Size = new Size(192, 27);
@@ -125,9 +127,9 @@ namespace quanlydatsan
             // 
             // btnTao
             // 
-            btnTao.Location = new Point(891, 301);
+            btnTao.Location = new Point(791, 291);
             btnTao.Name = "btnTao";
-            btnTao.Size = new Size(166, 32);
+            btnTao.Size = new Size(117, 38);
             btnTao.TabIndex = 24;
             btnTao.Text = "Tạo";
             btnTao.UseVisualStyleBackColor = true;
@@ -179,9 +181,9 @@ namespace quanlydatsan
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(704, 299);
+            btnXoa.Location = new Point(651, 291);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(178, 31);
+            btnXoa.Size = new Size(117, 38);
             btnXoa.TabIndex = 19;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -189,9 +191,9 @@ namespace quanlydatsan
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(513, 298);
+            btnLuu.Location = new Point(513, 291);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(163, 31);
+            btnLuu.Size = new Size(116, 38);
             btnLuu.TabIndex = 18;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
@@ -212,7 +214,7 @@ namespace quanlydatsan
             cboTrangthai.FormattingEnabled = true;
             cboTrangthai.Location = new Point(511, 237);
             cboTrangthai.Name = "cboTrangthai";
-            cboTrangthai.Size = new Size(257, 28);
+            cboTrangthai.Size = new Size(205, 28);
             cboTrangthai.TabIndex = 15;
             // 
             // label9
@@ -326,6 +328,7 @@ namespace quanlydatsan
             // dgvLichDat
             // 
             dgvLichDat.AllowUserToAddRows = false;
+            dgvLichDat.AllowUserToDeleteRows = false;
             dgvLichDat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLichDat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichDat.Location = new Point(24, 445);
@@ -364,6 +367,16 @@ namespace quanlydatsan
             btnHientatca.Text = "Hiện tất cả";
             btnHientatca.UseVisualStyleBackColor = true;
             btnHientatca.Click += btnHientatca_Click;
+            // 
+            // btnLamMoi
+            // 
+            btnLamMoi.Location = new Point(929, 291);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(116, 38);
+            btnLamMoi.TabIndex = 27;
+            btnLamMoi.Text = "Làm Mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // UCPhieuDatSan
             // 
@@ -415,5 +428,6 @@ namespace quanlydatsan
         private Button btnTao;
         private TextBox txtTrangThaiSan;
         private Label label10;
+        private Button btnLamMoi;
     }
 }

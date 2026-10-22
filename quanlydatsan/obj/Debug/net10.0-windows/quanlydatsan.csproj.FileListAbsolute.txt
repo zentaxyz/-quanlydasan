@@ -69,11 +69,8 @@ C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-window
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.All_User_control.UC_ThongTinCaNhan.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadAdmin.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.DashbroadKH.resources
-C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Form1.resources
-C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Form2.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FrmLichSuThanhToan.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.Properties.Resources.resources
-C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.test.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCNgayLe.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCPhieuDatSan.resources
 C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UCQuanLyLichDat.resources
@@ -222,3 +219,13 @@ D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanl
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.Utilities.dll
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.dll
 D:\New folder\baitapC#\quanlydatsan\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FormLogin.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\bin\Debug\net10.0-windows\WinForms.DataVisualization.dll
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UC_BaoCaoDoanhThu.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.UC_ThongTinChuSan.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FormThanhToan.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.All_User_control.UC_TrangChu.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\quanlydatsan.FormLogin.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCDoanhThuTheoSan.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCDoanhThuTheoThoiGian.resources
+C:\Users\JackM\Desktop\-quanlydasan-master\quanlydatsan\obj\Debug\net10.0-windows\QuanLyDatSan.UCTopKhachHang.resources

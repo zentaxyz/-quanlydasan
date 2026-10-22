@@ -134,6 +134,7 @@
             // dgvLichDat
             // 
             dgvLichDat.AllowUserToAddRows = false;
+            dgvLichDat.AllowUserToDeleteRows = false;
             dgvLichDat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichDat.Location = new Point(489, 146);
             dgvLichDat.MultiSelect = false;
