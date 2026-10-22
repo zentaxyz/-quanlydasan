@@ -10,7 +10,7 @@ namespace quanlydatsan.All_User_control
     public partial class UC_Datsan : UserControl
     {
         private readonly DatabaseC db = new DatabaseC();
-        private bool isLoading = false; // Cờ khóa chống đệ quy giao diện
+        private bool isLoading = false; // Cờ khóa chống lặp giao diện
 
         // Thông tin sân đang được chọn
         private string selectedMaSan = "";
@@ -23,7 +23,7 @@ namespace quanlydatsan.All_User_control
             InitializeComponent();
         }
 
-        #region 1. Khởi tạo & Nạp danh mục Loại Sân
+        //Khởi tạo sân
         private void UC_Datsan_Load(object sender, EventArgs e)
         {
             dtpNgayChoi.MinDate = DateTime.Today;
@@ -37,7 +37,7 @@ namespace quanlydatsan.All_User_control
             LoadLoaiSan();
             LoadDanhSachSan();
         }
-
+        //Nạp danh mục Loại Sân
         private void LoadLoaiSan()
         {
             cboLoaiSan.Items.Clear();
@@ -51,9 +51,9 @@ namespace quanlydatsan.All_User_control
             }
             cboLoaiSan.SelectedIndex = 0;
         }
-        #endregion
+       
 
-        #region 2. Truy vấn & Hiển thị Sơ đồ Sân (2 Cột)
+        //Truy vấn và Hiển thị Sơ đồ Sân (2 Cột)//
         private void Filter_Changed(object sender, EventArgs e)
         {
             ResetSelection();
@@ -87,7 +87,7 @@ namespace quanlydatsan.All_User_control
                     ? $" AND ls.TenLoaiSan = N'{cboLoaiSan.SelectedItem.ToString().Replace("'", "''")}'"
                     : "";
 
-                // Kiểm tra trùng lịch (Bỏ qua các phiếu đã hủy 'TT04')
+                // Kiểm tra trùng lịch (Bỏ qua các phiếu đã hủy 'TT03')
                 string query = $@"
                     SELECT s.MaSan, s.TenSan, ls.TenLoaiSan, ls.GiaTheoGio,
                            CASE WHEN EXISTS (
@@ -103,6 +103,7 @@ namespace quanlydatsan.All_User_control
                     ORDER BY s.TenSan ASC";
 
                 DataSet ds = db.GetData(query);
+                //xử lí giao diện
                 if (ds?.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
                 {
                     flpDanhSachSan.Controls.Add(new Label
@@ -136,7 +137,7 @@ namespace quanlydatsan.All_User_control
                 isLoading = false;
             }
         }
-
+        //Tạo thẻ hiển thị trạng thái sân//
         private Panel TaoTheSan(string maSan, string tenSan, string tenLoai, decimal giaGio, bool isBooked, int cardWidth)
         {
             Color statusColor = isBooked ? Color.FromArgb(239, 68, 68) : Color.FromArgb(34, 197, 94);
@@ -185,11 +186,11 @@ namespace quanlydatsan.All_User_control
             card.Controls.AddRange(new Control[] { pnlBar, lblTitle, lblLoai, lblGia, lblBadge, btnChon });
             return card;
         }
-        #endregion
 
-        #region 3. Chọn Sân & Tính Tiền Tạm Tính
+        //Chọn Sân & Tính Tiền Tạm Tính//
         private void ChonSanDat(string maSan, string tenSan, string tenLoai, decimal giaGio)
-        {
+        {   
+            //kiểm tra giờ đặt
             double totalHours = (dtpGioKetThuc.Value.TimeOfDay - dtpGioBatDau.Value.TimeOfDay).TotalHours;
             if (totalHours <= 0)
             {
@@ -209,7 +210,7 @@ namespace quanlydatsan.All_User_control
             lblTongTien.Text = $"{tongTienTamTinh:N0} VNĐ";
             btnXacNhanDat.Enabled = true;
         }
-
+        //reset thông báo hiển thị
         private void ResetSelection()
         {
             selectedMaSan = "";
@@ -221,14 +222,11 @@ namespace quanlydatsan.All_User_control
             lblTongTien.Text = "0 VNĐ";
             btnXacNhanDat.Enabled = false;
         }
-        #endregion
-
-        #region 4. Lưu Phiếu Đặt Sân & Xuất Biên Nhận
-        /// <summary>
-        /// Hàm tự động lấy số thứ tự lớn nhất sau chữ 'PD' rồi cộng thêm 1 (Ví dụ: PD01, PD02...)
-        /// </summary>
+        
+        //Lưu Phiếu Đặt Sân//
         private string TaoMaPhieuTuDong()
-        {
+        {   
+            //kiểm tra mã lớn nhất hiện tại và +1
             string sql = @"
                 SELECT ISNULL(MAX(TRY_CAST(SUBSTRING(MaPhieu, 3, LEN(MaPhieu)) AS INT)), 0) + 1 
                 FROM PhieuDatSan 
@@ -241,7 +239,7 @@ namespace quanlydatsan.All_User_control
 
             return $"PD{stt:D3}"; // D2: PD01, PD02... (Nếu muốn PD1, PD2 thì đổi thành $"PD{stt}")
         }
-
+        //Xử lí đặt sân
         private void btnXacNhanDat_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(selectedMaSan) || string.IsNullOrEmpty(Session.UserId))
@@ -254,7 +252,7 @@ namespace quanlydatsan.All_User_control
             string bd = dtpGioBatDau.Value.ToString("HH:mm:ss");
             string kt = dtpGioKetThuc.Value.ToString("HH:mm:ss");
 
-            // 1. Kiểm tra xung đột lần cuối trước khi INSERT
+            // Kiểm tra xung đột trước khi INSERT
             string checkSql = $@"
                 SELECT 1 FROM PhieuDatSan 
                 WHERE MaSan = '{selectedMaSan}' AND CAST(NgaySuDung AS DATE) = '{ngay}'
@@ -268,27 +266,26 @@ namespace quanlydatsan.All_User_control
                 return;
             }
 
-            // 2. Sinh mã phiếu tự động (PD + số stt tăng dần: PD01, PD02...)
+            // Sinh mã phiếu 
             string maPhieu = TaoMaPhieuTuDong();
             string tienSql = tongTienTamTinh.ToString(CultureInfo.InvariantCulture);
 
-            // 3. Lưu vào bảng PhieuDatSan (TT01: Đã đặt sân, 0: Chưa thanh toán)
+            //Lưu vào bảng PhieuDatSan
             string insertSql = $@"
                 INSERT INTO PhieuDatSan (MaPhieu, MaKhach, MaSan, NgayDat, NgaySuDung, ThoiGianBatDau, ThoiGianKetThuc, TongTien, MaTrangThai, XacNhanThanhToan)
                 VALUES ('{maPhieu}', '{Session.UserId}', '{selectedMaSan}', CAST(GETDATE() AS DATE), '{ngay}', '{bd}', '{kt}', {tienSql}, 'TT01', 0)";
 
             db.setData(insertSql, $"Đặt sân thành công! Mã phiếu: {maPhieu}");
 
-            // 4. HIỂN THỊ HƯỚNG DẪN THANH TOÁN VÀ GỬI ẢNH ZALO
+            //HIỂN THỊ HƯỚNG DẪN THANH TOÁN VÀ GỬI ẢNH ZALO
             FormThanhToan frmTT = new FormThanhToan(maPhieu, tongTienTamTinh);
             frmTT.ShowDialog();
-
+            //load lại dữ liệu
             ResetSelection();
             LoadDanhSachSan();
         }
-        #endregion
 
-        #region 5. Tự động chia đều 2 cột khi phóng to / thu nhỏ
+        //Tự động chia đều 2 cột khi phóng to / thu nhỏ//
         private int TinhChieuRongThe()
         {
             int w = flpDanhSachSan.ClientSize.Width > 0 ? flpDanhSachSan.ClientSize.Width : flpDanhSachSan.Width;
@@ -312,11 +309,10 @@ namespace quanlydatsan.All_User_control
             }
             flpDanhSachSan.ResumeLayout();
         }
-        #endregion
 
         private void pnlTopFilter_Paint(object sender, PaintEventArgs e)
         {
-            // Giữ lại sự kiện Paint đã được khai báo bên trong Designer để không báo lỗi biên dịch
+
         }
 
         private void btnRe_Click(object sender, EventArgs e)

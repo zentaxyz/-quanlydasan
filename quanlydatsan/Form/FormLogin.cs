@@ -15,8 +15,7 @@ namespace quanlydatsan
             InitializeComponent();
             SwitchPanel(pnlLogin);
         }
-
-        #region Chuyển đổi giao diện Panel
+        //Hàm chuyển đổi panel
         private void SwitchPanel(Panel targetPanel)
         {
             pnlLogin.Visible = (targetPanel == pnlLogin);
@@ -24,29 +23,29 @@ namespace quanlydatsan
             pnlForgotPassword.Visible = (targetPanel == pnlForgotPassword);
             targetPanel.BringToFront();
         }
-
+        //Hàm chuyển panel đăng kí
         private void linkToRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SwitchPanel(pnlRegister);
         }
-
+        //Hàm chuyển panel quên mkhau
         private void linkForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SwitchPanel(pnlForgotPassword);
         }
-
+        //Hàm chuyển panel đăng nhập
         private void linkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SwitchPanel(pnlLogin);
         }
-
+        //Hiện mkhau
         private void chkShowPasswordLogin_CheckedChanged(object sender, EventArgs e)
         {
             txtLoginPassword.UseSystemPasswordChar = !chkShowPasswordLogin.Checked;
         }
-        #endregion
 
-        #region 1. ĐĂNG NHẬP (Email / Số điện thoại / Username)
+
+        //Xử lí nút Đăng nhập
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string account = txtLoginUsername.Text.Trim();
@@ -61,9 +60,7 @@ namespace quanlydatsan
             string safeAccount = account.Replace("'", "''");
             string safePassword = password.Replace("'", "''");
 
-            // =========================================================================
-            // 1. KIỂM TRA TRONG BẢNG ChuSan (ADMIN / QUẢN LÝ CHỦ SÂN)
-            // =========================================================================
+           //1.Kiểm tra có phải chủ sân không
             string queryChuSan = $@"SELECT MaChuSan, TenChuSan, Email, SoDienThoai, Quyen 
                             FROM ChuSan 
                             WHERE (MaChuSan = '{safeAccount}' OR TenChuSan = N'{safeAccount}' OR Email = '{safeAccount}' OR SoDienThoai = '{safeAccount}') 
@@ -86,9 +83,7 @@ namespace quanlydatsan
                 return;
             }
 
-            // =========================================================================
-            // 2. KIỂM TRA TRONG BẢNG KhachHang (KHÁCH ĐẶT SÂN)
-            // =========================================================================
+           //2.Kiểm tra tài khoản có trong sql không
             string queryKhach = $@"SELECT MaKhach, TenKhach, Email, SoDienThoai 
                            FROM KhachHang 
                            WHERE (MaKhach = '{safeAccount}' OR TenKhach = N'{safeAccount}' OR Email = '{safeAccount}' OR SoDienThoai = '{safeAccount}') 
@@ -117,30 +112,29 @@ namespace quanlydatsan
         // Mở giao diện Admin
         private void MoDashbroadAdmin()
         {
-            // Nếu bạn đặt tên form là dashbroadamin hoặc DashbroadAdmin, gọi đúng tên form đó:
             DashbroadAdmin adminForm = new DashbroadAdmin();
             adminForm.FormClosed += (s, args) => this.Close(); // Đóng hẳn app khi tắt Form Admin
             adminForm.Show();
-            this.Hide(); // Ẩn form login
+            this.Hide(); 
         }
 
         // Mở giao diện Khách hàng
         private void MoDashbroadKhachHang()
         {
             DashbroadKH userForm = new DashbroadKH();
-            userForm.FormClosed += (s, args) => this.Close(); // Đóng hẳn app khi tắt Form User
+            userForm.FormClosed += (s, args) => this.Close();
             userForm.Show();
             this.Hide();
         }
-        #endregion
+        
 
-        #region 2. ĐĂNG KÝ
+
         #region 2. ĐĂNG KÝ BẰNG GMAIL & SỐ ĐIỆN THOẠI
+        //Xử lí nút đăng kí
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string fullName = txtRegFullName.Text.Trim();
             string phone = txtRegPhone.Text.Trim();
-            // Ô nhập Email/Gmail (nếu ô text cũ tên là txtRegUsername thì bạn có thể dùng hoặc đổi thành txtRegEmail)
             string email = txtRegUsername.Text.Trim();
             string password = txtRegPassword.Text;
             string confirmPass = txtRegConfirmPassword.Text;
@@ -196,17 +190,16 @@ namespace quanlydatsan
 
             db.setData(insertQuery, $"Đăng ký thành công!\nMã khách hàng của bạn là: {maKhachMoi}\nHãy đăng nhập bằng Email/SĐT để tiếp tục.");
 
-            // Dọn dẹp các ô nhập liệu
+            // làm trống các ô
             txtRegFullName.Clear();
             txtRegPhone.Clear();
             txtRegUsername.Clear();
             txtRegPassword.Clear();
             txtRegConfirmPassword.Clear();
 
-            // Chuyển về màn hình đăng nhập
             SwitchPanel(pnlLogin);
         }
-        #endregion
+        //Hàm tạo mã khách theo stt tăng dần
         private string TaoMaKhachTuDong()
         {
             string sql = @"
@@ -223,19 +216,19 @@ namespace quanlydatsan
         }
         #endregion
 
-        #region 3. ĐỔI MẬT KHẨU
+        //Xử lí đổi mật khẩu(không có otp)
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             string account = txtForgotAccount.Text.Trim();
             string newPass = txtForgotNewPass.Text;
             string confirmPass = txtForgotConfirmPass.Text;
-
+            //Kiểm tra ô trống
             if (string.IsNullOrEmpty(account) || string.IsNullOrEmpty(newPass) || string.IsNullOrEmpty(confirmPass))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản, mật khẩu mới và xác nhận mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            //kiểm tra mật khẩu
             if (newPass != confirmPass)
             {
                 MessageBox.Show("Mật khẩu mới và mật khẩu nhập lại không trùng khớp!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -245,11 +238,11 @@ namespace quanlydatsan
 
             string safeAccount = account.Replace("'", "''");
             string safeNewPass = newPass.Replace("'", "''");
-
+            //kiểm tra thông tin tài khoản tránh trùng lặp
             string checkExistQuery = $@"SELECT MaChuSan FROM ChuSan WHERE (MaChuSan = '{safeAccount}' OR Email = '{safeAccount}' OR SoDienThoai = '{safeAccount}')
                                         UNION
                                         SELECT MaKhach FROM KhachHang WHERE (MaKhach = '{safeAccount}' OR Email = '{safeAccount}' OR SoDienThoai = '{safeAccount}')";
-
+            //cập nhật lại mật khẩu trong sql
             DataSet ds = db.GetData(checkExistQuery);
             if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
             {
@@ -271,6 +264,5 @@ namespace quanlydatsan
 
             SwitchPanel(pnlLogin);
         }
-        #endregion
     }
 }

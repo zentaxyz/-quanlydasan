@@ -33,7 +33,7 @@ namespace quanlydatsan.All_User_control
 
             try
             {
-                // 1. Đếm tổng số sân trong hệ thống
+                //Đếm tổng số sân trong hệ thống
                 string querySan = "SELECT COUNT(*) FROM San";
                 DataSet dsSan = db.GetData(querySan);
                 if (dsSan != null && dsSan.Tables.Count > 0 && dsSan.Tables[0].Rows.Count > 0)
@@ -42,7 +42,7 @@ namespace quanlydatsan.All_User_control
                     lblCard1Val.Text = $"{tongSan} Sân";
                 }
 
-                // 2. Đếm tổng số đơn đặt sân của riêng khách hàng hiện tại
+                //Đếm tổng số đơn đặt sân của riêng khách hàng hiện tại
                 string safeUserId = Session.UserId.Replace("'", "''");
                 string queryDon = $"SELECT COUNT(*) FROM PhieuDatSan WHERE MaKhach = '{safeUserId}'";
                 DataSet dsDon = db.GetData(queryDon);

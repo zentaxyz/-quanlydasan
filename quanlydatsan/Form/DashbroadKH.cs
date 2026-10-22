@@ -31,7 +31,7 @@ namespace quanlydatsan
             btnHome.PerformClick();
         }
 
-        #region Xử lý chuyển tab không tạo mới liên tục
+        //xử lí các btn chuyển trang
         private void btnNav_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -105,14 +105,14 @@ namespace quanlydatsan
             }
         }
 
-        // Hàm thêm UserControl vào Panel và co giãn vừa khít
+        // Hàm thêm UserControl vào Panel và co giãn full
         private void ThemControlVaoPanel(UserControl uc)
         {
             uc.Dock = DockStyle.Fill;
             pnlMainContainer.Controls.Add(uc);
             uc.BringToFront();
         }
-
+        //tạo viền cho nút dc chọn
         private void SetActiveNavButton(Button btn, string pageTitle)
         {
             if (currentActiveButton != null)
@@ -130,9 +130,9 @@ namespace quanlydatsan
 
             lblCurrentPage.Text = pageTitle;
         }
-        #endregion
+        
 
-        #region Đăng xuất
+        //Xử lí Đăng xuất
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -142,21 +142,11 @@ namespace quanlydatsan
                 Session.UserId = null;
                 Session.FullName = null;
                 Session.Role = null;
-
+                //Gọi formlogin cũ
                 Form formLogin = Application.OpenForms["FormLogin"];
-                if (formLogin != null)
-                {
-                    formLogin.Show();
-                }
-                else
-                {
-                    FormLogin newLogin = new FormLogin();
-                    newLogin.Show();
-                }
-
+                formLogin.Show();
                 this.Dispose();
             }
         }
-        #endregion
     }
 }

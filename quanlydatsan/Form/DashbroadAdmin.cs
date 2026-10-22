@@ -18,7 +18,6 @@ namespace quanlydatsan
         private QLLS ucLoaiSan;
         private UCQuanLyLichDat ucQuanLyLichDat;
         private UC_ThongTinChuSan ucThongTinChuSan;
-
         private UC_BaoCaoDoanhThu ucBaoCaoDoanhThu;
         public DashbroadAdmin()
         {
@@ -34,7 +33,7 @@ namespace quanlydatsan
             btnDashboard.PerformClick();
         }
 
-        #region Xử lý chuyển trang Dashboard
+        //xử lí các btn chuyển trang
         private void btnMenu_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -144,7 +143,7 @@ namespace quanlydatsan
                     pnlContent.Controls.RemoveAt(i);
                 }
             }
-
+            //kiểm tra để thêm uc vào panel
             if (!pnlContent.Controls.Contains(uc))
             {
                 uc.Dock = DockStyle.Fill;
@@ -154,21 +153,7 @@ namespace quanlydatsan
             uc.Visible = true;
             uc.BringToFront();
         }
-
-        private void ShowContentText(string desc)
-        {
-            pnlContent.Controls.Clear();
-            Label lbl = new Label
-            {
-                Text = desc,
-                Font = new Font("Segoe UI", 12F, FontStyle.Regular),
-                ForeColor = Color.FromArgb(71, 85, 105),
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-            pnlContent.Controls.Add(lbl);
-        }
-
+        //tạo viền cho nút dc chọn
         private void HighlightButton(Button btn, string title)
         {
             if (activeBtn != null)
@@ -181,9 +166,9 @@ namespace quanlydatsan
             activeBtn.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             lblTitle.Text = title;
         }
-        #endregion
 
-        #region Đăng xuất
+
+        //xử lí Đăng xuất
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show(
@@ -198,20 +183,13 @@ namespace quanlydatsan
                 Session.UserId = null;
                 Session.FullName = null;
                 Session.Role = null;
-
+                //Gọi formlogin cũ
                 Form formLogin = Application.OpenForms["FormLogin"];
-                if (formLogin != null)
-                {
-                    formLogin.Show();
-                }
-                else
-                {
-                    FormLogin newLogin = new FormLogin();
-                    newLogin.Show();
-                }
+                formLogin.Show();
                 this.Dispose();
+
             }
+
         }
-        #endregion
     }
 }

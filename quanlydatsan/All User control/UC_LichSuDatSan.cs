@@ -21,7 +21,7 @@ namespace quanlydatsan.All_User_control
             LoadLichSu();
         }
 
-        #region 1. Tải dữ liệu lịch sử đặt sân từ SQL Server
+        //Tải dữ liệu lịch sử đặt sân từ SQL Server
         public void LoadLichSu()
         {
             if (string.IsNullOrEmpty(Session.UserId))
@@ -89,7 +89,7 @@ namespace quanlydatsan.All_User_control
                 CapNhatThongKe(ds.Tables[0]);
             }
         }
-
+        
         private void CapNhatThongKe(DataTable dt)
         {
             int count = dt.Rows.Count;
@@ -108,9 +108,8 @@ namespace quanlydatsan.All_User_control
             lblTongDon.Text = $"Tổng số phiếu: {count} đơn";
             lblTongChiTieu.Text = $"Tổng tiền đã đặt: {total:N0} VNĐ";
         }
-        #endregion
 
-        #region 2. Sự kiện Tìm kiếm và Lọc
+        //Sự kiện Tìm kiếm và Lọc
         private void Filter_Changed(object sender, EventArgs e)
         {
             LoadLichSu();
@@ -122,38 +121,8 @@ namespace quanlydatsan.All_User_control
             cboLocTrangThai.SelectedIndex = 0;
             LoadLichSu();
         }
-        #endregion
 
-        #region 3. Xem Vé / In Phiếu Đặt Sân
-        private void btnXemChiTiet_Click(object sender, EventArgs e)
-        {
-            MoChiTietPhieu();
-        }
-
-        private void dgvLichSu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                MoChiTietPhieu();
-            }
-        }
-
-        private void MoChiTietPhieu()
-        {
-            if (dgvLichSu.CurrentRow == null)
-            {
-                MessageBox.Show("Vui lòng chọn một phiếu đặt sân từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            string maPhieu = dgvLichSu.CurrentRow.Cells["Mã Phiếu"].Value.ToString();
-
-            // Mở lại FormPhieuDatSan đã tạo
-           
-        }
-        #endregion
-
-        #region 4. Hủy Đặt Sân (Khách Hàng)
+        //Hủy Đặt Sân (Khách Hàng)
         private void btnHuyPhieu_Click(object sender, EventArgs e)
         {
             if (dgvLichSu.CurrentRow == null)
@@ -198,9 +167,8 @@ namespace quanlydatsan.All_User_control
                 LoadLichSu();
             }
         }
-        #endregion
 
-        #region 5. Tô màu trạng thái sinh động cho DataGridView
+        //Tô màu trạng thái sinh động cho DataGridView
         private void dgvLichSu_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex < 0 || e.Value == null) return;
@@ -243,6 +211,6 @@ namespace quanlydatsan.All_User_control
                 }
             }
         }
-        #endregion
+   
     }
 }

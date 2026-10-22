@@ -26,7 +26,7 @@ namespace quanlydatsan
             string tenChuSan = "Chủ Sân";
             string soDienThoai = "Chưa cập nhật";
             string qrPath = Path.Combine(Application.StartupPath, "Resources", "qrCK.png");
-            
+            //lấy thông tin chủ sân
             try
             {
                 string query = "SELECT TOP 1 TenChuSan, SoDienThoai FROM ChuSan";

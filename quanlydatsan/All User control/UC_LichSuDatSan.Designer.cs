@@ -236,7 +236,7 @@
             dgvLichSu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLichSu.Size = new Size(890, 430);
             dgvLichSu.TabIndex = 3;
-            dgvLichSu.CellDoubleClick += dgvLichSu_CellDoubleClick;
+           // dgvLichSu.CellDoubleClick += dgvLichSu_CellDoubleClick;
             dgvLichSu.CellFormatting += dgvLichSu_CellFormatting;
             // 
             // UC_LichSuDatSan

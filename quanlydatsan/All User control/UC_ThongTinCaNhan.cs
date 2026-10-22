@@ -23,7 +23,7 @@ namespace quanlydatsan.All_User_control
             LoadThongTinKhachHang();
         }
 
-        #region 1. Tải thông tin khách hàng từ Database
+        //Tải thông tin khách hàng từ Database
         public void LoadThongTinKhachHang()
         {
             if (string.IsNullOrEmpty(Session.UserId))
@@ -31,7 +31,7 @@ namespace quanlydatsan.All_User_control
                 MessageBox.Show("Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            //truy vấn dữ liệu từ sql
             string safeUserId = Session.UserId.Replace("'", "''");
             string query = $@"SELECT MaKhach, TenKhach, SoDienThoai, Email, MatKhau, GioiTinh, NgaySinh, Diachi 
                              FROM KhachHang 
@@ -77,9 +77,8 @@ namespace quanlydatsan.All_User_control
             txtMatKhauMoi.Clear();
             txtXacNhanMatKhau.Clear();
         }
-        #endregion
 
-        #region 2. Bật / Tắt ô đổi mật khẩu
+        //Bật / Tắt ô đổi mật khẩu
         private void chkDoiMatKhau_CheckedChanged(object sender, EventArgs e)
         {
             bool isChecked = chkDoiMatKhau.Checked;
@@ -94,9 +93,8 @@ namespace quanlydatsan.All_User_control
                 txtXacNhanMatKhau.Clear();
             }
         }
-        #endregion
 
-        #region 3. Lưu thông tin chỉnh sửa
+        //Lưu thông tin chỉnh sửa
         private void btnLuu_Click(object sender, EventArgs e)
         {
             string tenKhach = txtTenKhach.Text.Trim();
@@ -185,13 +183,12 @@ namespace quanlydatsan.All_User_control
             // Nạp lại dữ liệu
             LoadThongTinKhachHang();
         }
-        #endregion
 
-        #region 4. Nút Khôi Phục ban đầu
+        //Nút reset
         private void btnHuy_Click(object sender, EventArgs e)
         {
             LoadThongTinKhachHang();
         }
-        #endregion
+
     }
 }
