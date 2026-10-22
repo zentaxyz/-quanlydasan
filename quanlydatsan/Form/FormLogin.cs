@@ -135,21 +135,35 @@ namespace quanlydatsan
         #endregion
 
         #region 2. ĐĂNG KÝ
+        #region 2. ĐĂNG KÝ BẰNG GMAIL & SỐ ĐIỆN THOẠI
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string fullName = txtRegFullName.Text.Trim();
             string phone = txtRegPhone.Text.Trim();
-            string username = txtRegUsername.Text.Trim();
+            // Ô nhập Email/Gmail (nếu ô text cũ tên là txtRegUsername thì bạn có thể dùng hoặc đổi thành txtRegEmail)
+            string email = txtRegUsername.Text.Trim();
             string password = txtRegPassword.Text;
             string confirmPass = txtRegConfirmPassword.Text;
 
+            // 1. Kiểm tra để trống
             if (string.IsNullOrWhiteSpace(fullName) || string.IsNullOrWhiteSpace(phone) ||
-                string.IsNullOrWhiteSpace(username) || string.IsNullOrEmpty(password))
+                string.IsNullOrWhiteSpace(email) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ các trường thông tin!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập đầy đủ các thông tin: Họ tên, Số điện thoại, Email và Mật khẩu!",
+                                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // 2. Kiểm tra định dạng Gmail cơ bản
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                MessageBox.Show("Địa chỉ Email không đúng định dạng (ví dụ: example@gmail.com)!",
+                                "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRegUsername.Focus();
+                return;
+            }
+
+            // 3. Kiểm tra khớp mật khẩu
             if (password != confirmPass)
             {
                 MessageBox.Show("Mật khẩu xác nhận không trùng khớp!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -157,30 +171,55 @@ namespace quanlydatsan
                 return;
             }
 
-            string safeUsername = username.Replace("'", "''");
+            string safeEmail = email.Replace("'", "''");
             string safePhone = phone.Replace("'", "''");
 
-            string checkQuery = $"SELECT MaKhach FROM KhachHang WHERE MaKhach = '{safeUsername}' OR SoDienThoai = '{safePhone}'";
+            // 4. Kiểm tra trùng lặp Email hoặc Số điện thoại
+            string checkQuery = $@"SELECT MaKhach FROM KhachHang 
+                          WHERE Email = '{safeEmail}' OR SoDienThoai = '{safePhone}'";
             DataSet dsCheck = db.GetData(checkQuery);
 
             if (dsCheck != null && dsCheck.Tables.Count > 0 && dsCheck.Tables[0].Rows.Count > 0)
             {
-                MessageBox.Show("Tên đăng nhập hoặc số điện thoại này đã được sử dụng!", "Trùng thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Email hoặc Số điện thoại này đã được sử dụng bởi tài khoản khác!",
+                                "Trùng thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string insertQuery = $@"INSERT INTO KhachHang (MaKhach, TenKhach, SoDienThoai, MatKhau) 
-                                    VALUES ('{safeUsername}', N'{fullName.Replace("'", "''")}', '{safePhone}', '{password.Replace("'", "''")}')";
+            // 5. Sinh mã khách hàng tự động dạng KH001, KH002...
+            string maKhachMoi = TaoMaKhachTuDong();
 
-            db.setData(insertQuery, "Đăng ký tài khoản thành công! Hãy đăng nhập để đặt sân.");
+            // 6. Lưu vào bảng KhachHang
+            string insertQuery = $@"
+            INSERT INTO KhachHang (MaKhach, TenKhach, SoDienThoai, Email, MatKhau) 
+            VALUES ('{maKhachMoi}', N'{fullName.Replace("'", "''")}', '{safePhone}', '{safeEmail}', '{password.Replace("'", "''")}')";
 
+            db.setData(insertQuery, $"Đăng ký thành công!\nMã khách hàng của bạn là: {maKhachMoi}\nHãy đăng nhập bằng Email/SĐT để tiếp tục.");
+
+            // Dọn dẹp các ô nhập liệu
             txtRegFullName.Clear();
             txtRegPhone.Clear();
             txtRegUsername.Clear();
             txtRegPassword.Clear();
             txtRegConfirmPassword.Clear();
 
+            // Chuyển về màn hình đăng nhập
             SwitchPanel(pnlLogin);
+        }
+        #endregion
+        private string TaoMaKhachTuDong()
+        {
+            string sql = @"
+                SELECT ISNULL(MAX(TRY_CAST(SUBSTRING(MaKhach, 3, LEN(MaKhach)) AS INT)), 0) + 1 
+                FROM KhachHang
+                WHERE MaKhach LIKE 'KH%'";
+
+            DataSet ds = db.GetData(sql);
+            int stt = (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                ? Convert.ToInt32(ds.Tables[0].Rows[0][0])
+                : 1;
+
+            return $"KH{stt:D3}";
         }
         #endregion
 

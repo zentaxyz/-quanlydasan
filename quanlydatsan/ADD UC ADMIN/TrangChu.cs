@@ -58,7 +58,7 @@ namespace quanlydatsan
                 string sqlDoanhthu = @"
              SELECT ISNULL(SUM(TongTien), 0)
              FROM PhieuDatSan
-             WHERE CONVERT(date, NgaySuDung) = CONVERT(date, GETDATE())";
+             WHERE CONVERT(date, NgaySuDung) = CONVERT(date, GETDATE()) AND MaTrangThai = 'TT02'";
                 DataTable dtDoanhthu = db.ReadData(sqlDoanhthu);
                 if (dtDoanhthu != null && dtDoanhthu.Rows.Count > 0)
                 {

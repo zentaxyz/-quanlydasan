@@ -35,7 +35,7 @@ namespace quanlydatsan.ADD_UC_ADMIN
 
         private void LoadDanhsachkhachhang()
         {
-            string sql = "SELECT MaKhach AS [Mã Khách], TenKhach AS [Họ và Tên], SoDienThoai AS [SĐT], Email, GioiTinh AS [Giới tính], NgaySinh AS [Ngày sinh], Diachi AS [Địa chỉ] FROM KhachHang";
+            string sql = "SELECT MaKhach AS [Mã Khách], TenKhach AS [Họ và Tên], SoDienThoai AS [SĐT], Email, GioiTinh AS [Giới tính], NgaySinh AS [Ngày sinh], Diachi AS [Địa chỉ] FROM KhachHang Where MaKhach <> 'KH000' ";
             dgvKhachhang.DataSource = db.ReadData(sql);
         }
 
